@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\ImynewInterface.cs" />
+    <Compile Include="Interface\IConnectConfig.cs" />
+    <Compile Include="Interface\IConnectChartform.cs" />
+    <Compile Include="Interface\IDownload.cs" />
     <Compile Include="View\Configform.cs">
       <SubType>Form</SubType>
     </Compile>

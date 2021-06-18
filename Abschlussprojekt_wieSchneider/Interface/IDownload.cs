@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    interface ImynewInterface
+    interface IDownload
     {
-        //The Inteface
+        bool ReadFile(string path, string filename);
+        bool WriteFile(string path, string filename);
     }
 }
