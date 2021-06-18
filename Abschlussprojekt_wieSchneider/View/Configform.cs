@@ -21,5 +21,19 @@ namespace Abschlussprojekt_wieSchneider
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Filedownload newfile = new Filedownload();
+            bool j = newfile.ReadFile("", "");
+            if(j == true)
+            {
+                MessageBox.Show("Funkt");
+            }
+            else
+            {
+                MessageBox.Show("Funkt nicht");
+            }
+        }
     }
 }

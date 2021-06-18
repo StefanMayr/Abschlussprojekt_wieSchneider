@@ -9,11 +9,18 @@ namespace Abschlussprojekt_wieSchneider
 {
     class Filedownload : IDownload
     {
+        public Filedownload()
+        {
+            //default constructor
+        }
+
         public bool ReadFile(string input2, string input)
         {
+            input2 = @"C:\Users\Stefa\source\repos\Abschlussprojekt_wieSchneider\Abschlussprojekt_wieSchneider\Files";
+            input = "timeline-faelle-bundeslaender.csv";
             BasisstructureData[] Standort = new BasisstructureData[default];
             string helper = "";
-            string pathandfile = input + input2;
+            string pathandfile = input2 + "\\" + input;
             string path = input2;
             bool directory = false;
             bool file = false;
@@ -22,7 +29,7 @@ namespace Abschlussprojekt_wieSchneider
             try
             {
                 //Testing file and directory
-                directory = Directory.Exists(input);
+                directory = Directory.Exists(input2);
                 file = File.Exists(pathandfile);
                 if ((directory == false && file == false) || (directory == false && file == true) || (directory == true && file == false))
                 {
@@ -81,7 +88,7 @@ namespace Abschlussprojekt_wieSchneider
                 return false;
             }
                
-            //Liste wegschicken 
+            //Liste wegschicken (noch nicht erstellt)
             //Code
 
             return true;
