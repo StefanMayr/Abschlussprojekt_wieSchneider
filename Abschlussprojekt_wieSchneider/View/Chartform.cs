@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    public partial class Chartform : Form
+    public partial class Chartform : Form, IConnectChartform
     {
+        string IConnectChartform 
+
         public Chartform()
         {
             InitializeComponent();
