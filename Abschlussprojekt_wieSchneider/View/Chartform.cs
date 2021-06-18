@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    public partial class Chartform : Form, IConnectChartform
+    public partial class Chartform : Form //, IConnectChartform
     {
-        string IConnectChartform 
-
+        
         public Chartform()
         {
             InitializeComponent();
@@ -21,6 +20,8 @@ namespace Abschlussprojekt_wieSchneider
 
         private void btn_conf_Click(object sender, EventArgs e)
         {
+            //Kopf 
+
             //Hier Text zum File
             var objChart = chart1.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
@@ -33,6 +34,10 @@ namespace Abschlussprojekt_wieSchneider
             objChart.AxisY.Maximum = 50;
             // clear
             chart1.Series.Clear();
+
+
+            //Befüllen hier
+
             // random color
             Random random = new Random();
 

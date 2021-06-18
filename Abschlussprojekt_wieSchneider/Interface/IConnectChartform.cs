@@ -8,6 +8,7 @@ namespace Abschlussprojekt_wieSchneider
 {
     interface IConnectChartform
     {
+
         string Title { get; set; }
         double week1 { get; set; }
         double week2 { get; set; }

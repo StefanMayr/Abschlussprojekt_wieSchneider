@@ -57,17 +57,8 @@
       <DependentUpon>Configform.cs</DependentUpon>
     </Compile>
     <Compile Include="Presenter\ConfigPresenter.cs" />
-    <Compile Include="Model\BasisStrucutre\IntensiveCareUnit.cs" />
-    <Compile Include="Model\BasisStrucutre\Hospitalization.cs" />
-    <Compile Include="Model\BasisStrucutre\Deaths.cs" />
-    <Compile Include="Model\BasisStrucutre\ConfirmedCases.cs" />
     <Compile Include="Model\BasisStrucutre\BasisstructureData.cs" />
-    <Compile Include="Model\BasisStrucutre\DataList.cs" />
     <Compile Include="Model\Filedownload\Filedownload.cs" />
-    <Compile Include="Model\BasisStrucutre\Recovered.cs" />
-    <Compile Include="Model\BasisStrucutre\Testingsum.cs" />
-    <Compile Include="Model\BasisStrucutre\TestingANT.cs" />
-    <Compile Include="Model\BasisStrucutre\TestingPCR.cs" />
     <Compile Include="View\Chartform.cs">
       <SubType>Form</SubType>
     </Compile>
