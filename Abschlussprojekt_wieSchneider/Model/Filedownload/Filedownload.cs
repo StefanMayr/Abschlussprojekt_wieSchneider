@@ -16,9 +16,10 @@ namespace Abschlussprojekt_wieSchneider
 
         public bool ReadFile(string input2, string input)
         {
+            List<BasisstructureData> downloaddata = new List<BasisstructureData>();
             input2 = @"C:\Users\Stefa\source\repos\Abschlussprojekt_wieSchneider\Abschlussprojekt_wieSchneider\Files";
             input = "timeline-faelle-bundeslaender.csv";
-            BasisstructureData[] Standort = new BasisstructureData[default];
+            BasisstructureData[] Rawdata = new BasisstructureData[default];
             string helper = "";
             string pathandfile = input2 + "\\" + input;
             string path = input2;
@@ -41,42 +42,42 @@ namespace Abschlussprojekt_wieSchneider
                     int i = 0;
                     while ((helper = newstream.ReadLine()) != null)
                     {
-                        Array.Resize(ref Standort, Standort.Length + 1);
+                        Array.Resize(ref Rawdata, Rawdata.Length + 1);
                         string[] splitLine = helper.Split(';');
-                        Standort[i] = new BasisstructureData();
-                        Standort[i].Date = splitLine[0];
-                        Standort[i].State = splitLine[2];
+                        Rawdata[i] = new BasisstructureData();
+                        Rawdata[i].Date = splitLine[0];
+                        Rawdata[i].State = splitLine[2];
                         if (int.TryParse(splitLine[3], out conversion) == true)
                         {
-                            Standort[i].ConfirmedCases = Int32.Parse(splitLine[3]);
+                            Rawdata[i].ConfirmedCases = Int32.Parse(splitLine[3]);
                         }
                         if (int.TryParse(splitLine[4], out conversion) == true)
                         {
-                            Standort[i].Deaths = Int32.Parse(splitLine[4]);
+                            Rawdata[i].Deaths = Int32.Parse(splitLine[4]);
                         }
                         if (int.TryParse(splitLine[5], out conversion) == true)
                         {
-                            Standort[i].Recovered = Int32.Parse(splitLine[5]);
+                            Rawdata[i].Recovered = Int32.Parse(splitLine[5]);
                         }
                         if (int.TryParse(splitLine[6], out conversion) == true)
                         {
-                            Standort[i].Hospitalizations = Int32.Parse(splitLine[6]);
+                            Rawdata[i].Hospitalizations = Int32.Parse(splitLine[6]);
                         }
                         if (int.TryParse(splitLine[7], out conversion) == true)
                         {
-                            Standort[i].IntenisveCare = Int32.Parse(splitLine[7]);
+                            Rawdata[i].IntenisveCare = Int32.Parse(splitLine[7]);
                         }
                         if (int.TryParse(splitLine[8], out conversion) == true)
                         {
-                            Standort[i].Tested = Int32.Parse(splitLine[8]);
+                            Rawdata[i].Tested = Int32.Parse(splitLine[8]);
                         }
                         if (int.TryParse(splitLine[9], out conversion) == true)
                         {
-                            Standort[i].TestedPCR = Int32.Parse(splitLine[9]);
+                            Rawdata[i].TestedPCR = Int32.Parse(splitLine[9]);
                         }
                         if (int.TryParse(splitLine[10], out conversion) == true)
                         {
-                            Standort[i].TestedANT = Int32.Parse(splitLine[10]);
+                            Rawdata[i].TestedANT = Int32.Parse(splitLine[10]);
                         }
 
                         i++;
@@ -87,9 +88,13 @@ namespace Abschlussprojekt_wieSchneider
             {
                 return false;
             }
-               
+
             //Liste wegschicken (noch nicht erstellt)
             //Code
+            for (int i = 0; i < Rawdata.Length; i++)
+            {
+                downloaddata.Add(Rawdata[i]);
+            }
 
             return true;
         }
