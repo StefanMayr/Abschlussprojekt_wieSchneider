@@ -9,17 +9,13 @@ namespace Abschlussprojekt_wieSchneider
 {
     class ConfigPresenter
     {
-        //Dieser wird das Configfenster bedienen
-        //Idee: Dieser kommuniziert mit den Models und öffnet das ConfigFenster
-
+        //Für Bundeslandliste
         private Configform mynewConfig;
         private IConnectConfig ConfigConnect;
-
         //Test verbinden Bundeslandliste mit Configview
         private DataList Bundeslandlist;
 
-        //Test
-        private Filter Testfilter = new Filter();
+        //
 
         public ConfigPresenter()
         {
@@ -45,14 +41,14 @@ namespace Abschlussprojekt_wieSchneider
         public void ConnectConfigandStalist()
         {
             //Testfilter.Textfeld = test.Textfeld;
-            ConfigConnect.Bundeslandliste = Bundeslandlist.tester;
+            ConfigConnect.Bundeslandliste = Bundeslandlist.StatelistinModel;
         }
 
         public void LoadText(IConnectConfig Configview)
         {
             ConfigConnect = Configview;
             Bundeslandlist = new DataList();
-            Bundeslandlist.Testfunktion();
+            Bundeslandlist.Stateloader();
             //Connect Presenter and View
             ConnectConfigandStalist();
 

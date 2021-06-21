@@ -10,12 +10,21 @@ namespace Abschlussprojekt_wieSchneider
     class Chartpresenter
     {
         //Einstieg vom Main hier in den Chartpresenter
-
         //Startet die ChartForm über den Presenter
         private Chartform newchartform;
 
+        //Für Daten
+        DataList DatatoChart;
+
         public Chartpresenter()
         {
+
+        }
+
+        public void LoadDatatoChart(string selectedState)
+        {
+            DatatoChart = new DataList();
+            //Download the Data for the Chart
 
         }
 

@@ -12,10 +12,15 @@ namespace Abschlussprojekt_wieSchneider
 {
     public partial class Configform : Form, IConnectConfig
     {
+        //Für Bundeslandliste
         List<string> IConnectConfig.Bundeslandliste{ get => testinterface; set => testinterface = value; }
 
+        //Für Bundeslandliste
         private ConfigPresenter Listboxpresenter;
         private List<string> testinterface;
+
+        //Für Graph
+        private Chartpresenter Chartformpresenter;
         public Configform()
         {
             InitializeComponent();
@@ -26,24 +31,8 @@ namespace Abschlussprojekt_wieSchneider
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Filedownload newfile = new Filedownload();
-            bool j = newfile.ReadFile("", "");
-            if(j == true)
-            {
-                MessageBox.Show("Funkt");
-            }
-            else
-            {
-                MessageBox.Show("Funkt nicht");
-            }
-            
-        }
-
         private void UpdateList()
         {
-            
             listBox1.Items.Clear();
 
             for(int i = 0; i < testinterface.Count; i++)
@@ -57,6 +46,21 @@ namespace Abschlussprojekt_wieSchneider
             Listboxpresenter = new ConfigPresenter();
             Listboxpresenter.LoadText(this);
             UpdateList();
+        }
+
+        private void btn_Present_Click(object sender, EventArgs e)
+        {
+            if(listBox1.SelectedItem != null)
+            {
+                //Zum Models und mit den Daten in die Chartform
+                Chartformpresenter = new Chartpresenter();
+                //Funktion
+                Chartformpresenter.LoadDatatoChart(listBox1.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Es wurde kein Element ausgewählt.", "Achtung");
+            }
         }
     }
 }

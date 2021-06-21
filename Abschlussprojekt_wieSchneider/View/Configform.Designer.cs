@@ -36,6 +36,7 @@
             this.btn_Remove = new System.Windows.Forms.Button();
             this.btn_Import = new System.Windows.Forms.Button();
             this.btn_Export = new System.Windows.Forms.Button();
+            this.btn_Present = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Testbutton2
@@ -113,11 +114,22 @@
             this.btn_Export.Text = "Export";
             this.btn_Export.UseVisualStyleBackColor = true;
             // 
+            // btn_Present
+            // 
+            this.btn_Present.Location = new System.Drawing.Point(352, 234);
+            this.btn_Present.Name = "btn_Present";
+            this.btn_Present.Size = new System.Drawing.Size(150, 50);
+            this.btn_Present.TabIndex = 9;
+            this.btn_Present.Text = "Anzeigen";
+            this.btn_Present.UseVisualStyleBackColor = true;
+            this.btn_Present.Click += new System.EventHandler(this.btn_Present_Click);
+            // 
             // Configform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 514);
+            this.Controls.Add(this.btn_Present);
             this.Controls.Add(this.btn_Export);
             this.Controls.Add(this.btn_Import);
             this.Controls.Add(this.btn_Remove);
@@ -142,5 +154,6 @@
         private System.Windows.Forms.Button btn_Remove;
         private System.Windows.Forms.Button btn_Import;
         private System.Windows.Forms.Button btn_Export;
+        private System.Windows.Forms.Button btn_Present;
     }
 }

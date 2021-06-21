@@ -8,15 +8,14 @@ namespace Abschlussprojekt_wieSchneider
 {
     class DataList : BasisstructureData
     {
-        //private List<DataList> Listtopresent;
-        public List<string> tester { get; set; }
+        public List<string> StatelistinModel { get; set; }
 
         public DataList()
         {
 
         }
 
-        public void Testfunktion()
+        public void Stateloader()
         {
             Filedownload newdownloader = new Filedownload();
             List<string> listtostring = new List<string>();
@@ -27,7 +26,7 @@ namespace Abschlussprojekt_wieSchneider
                 listtostring.Add(newdownloader.Teststrinback[i].GetBundesland());
             }
             
-             tester = listtostring;
+             StatelistinModel = listtostring;
         }
     }
 }
