@@ -8,6 +8,10 @@ namespace Abschlussprojekt_wieSchneider
 {
     class Filter
     {
+        //Liste
+
+
+        //Testproperty
         public string Textfeld { get; set; }
         public Filter()
         {

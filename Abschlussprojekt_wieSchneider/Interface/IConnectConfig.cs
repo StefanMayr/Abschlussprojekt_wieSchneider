@@ -8,7 +8,10 @@ namespace Abschlussprojekt_wieSchneider
 {
     interface IConnectConfig
     {
-        string Textfeld { get; set; }
-        string ReturnTextfeld { get; set; }
+        //string Textfeld { get; set; }
+        //string ReturnTextfeld { get; set; }
+        
+        //DataList Statelist { get; set; }
+        List<string> Bundeslandliste { get; set; }
     }
 }

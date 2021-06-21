@@ -13,8 +13,18 @@ namespace Abschlussprojekt_wieSchneider
         //Idee: Dieser kommuniziert mit den Models und öffnet das ConfigFenster
 
         private Configform mynewConfig;
-        private IConnectConfig test;
+        private IConnectConfig ConfigConnect;
+
+        //Test verbinden Bundeslandliste mit Configview
+        private DataList Bundeslandlist;
+
+        //Test
         private Filter Testfilter = new Filter();
+
+        public ConfigPresenter()
+        {
+
+        }
 
         public ConfigPresenter(Configform myConfigform)
         {
@@ -24,7 +34,7 @@ namespace Abschlussprojekt_wieSchneider
         public ConfigPresenter(Configform mysecondConfigform, IConnectConfig input)
         {
             mynewConfig = mysecondConfigform;
-            test = input;
+            ConfigConnect = input;
         }
 
         public void RunConfig()
@@ -32,15 +42,20 @@ namespace Abschlussprojekt_wieSchneider
             mynewConfig.ShowDialog();
         }
 
-        public void ConnectConfigandChart()
+        public void ConnectConfigandStalist()
         {
-            Testfilter.Textfeld = test.Textfeld;
+            //Testfilter.Textfeld = test.Textfeld;
+            ConfigConnect.Bundeslandliste = Bundeslandlist.tester;
         }
 
-        public void Returnthatshit()
+        public void LoadText(IConnectConfig Configview)
         {
-            ConnectConfigandChart();
-            test.ReturnTextfeld = Testfilter.ReturnTestvalue();
+            ConfigConnect = Configview;
+            Bundeslandlist = new DataList();
+            Bundeslandlist.Testfunktion();
+            //Connect Presenter and View
+            ConnectConfigandStalist();
+
         }
     }
 }

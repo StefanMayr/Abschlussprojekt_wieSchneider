@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    public partial class Chartform : Form, IConnectConfig //, IConnectChartform
+    public partial class Chartform : Form//, IConnectConfig //, IConnectChartform
     {
-        string IConnectConfig.Textfeld { get => textBox1.Text; set => textBox1.Text = value; }
-        string IConnectConfig.ReturnTextfeld { get => textBox2.Text; set => textBox2.Text = value; }
+        //string IConnectConfig.Textfeld { get => textBox1.Text; set => textBox1.Text = value; }
+        //string IConnectConfig.ReturnTextfeld { get => textBox2.Text; set => textBox2.Text = value; }
         public Chartform()
         {
             InitializeComponent();
@@ -72,10 +72,5 @@ namespace Abschlussprojekt_wieSchneider
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ConfigPresenter newpres = new ConfigPresenter(new Configform(), this);
-            newpres.Returnthatshit();
-        }
     }
 }

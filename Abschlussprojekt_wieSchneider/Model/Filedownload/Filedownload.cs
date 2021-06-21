@@ -9,6 +9,10 @@ namespace Abschlussprojekt_wieSchneider
 {
     class Filedownload : IDownload
     {
+        public List<BasisstructureData> Rawdownload { get; set; }
+        public BasisstructureData[] Teststrinback;
+        
+
         public Filedownload()
         {
             //default constructor
@@ -95,6 +99,8 @@ namespace Abschlussprojekt_wieSchneider
             {
                 downloaddata.Add(Rawdata[i]);
             }
+            Teststrinback = Rawdata;
+            Rawdownload = downloaddata;
 
             return true;
         }
@@ -103,5 +109,7 @@ namespace Abschlussprojekt_wieSchneider
         {
             return false;
         }
+
+
     }
 }

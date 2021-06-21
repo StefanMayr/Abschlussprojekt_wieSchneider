@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BasisStrucutre\DataList.cs" />
     <Compile Include="Model\BasisStrucutre\Filter.cs" />
     <Compile Include="Interface\IConnectConfig.cs" />
     <Compile Include="Interface\IConnectChartform.cs" />

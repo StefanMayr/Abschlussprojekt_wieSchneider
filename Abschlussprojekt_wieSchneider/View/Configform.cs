@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    public partial class Configform : Form
+    public partial class Configform : Form, IConnectConfig
     {
+        List<string> IConnectConfig.Bundeslandliste{ get => testinterface; set => testinterface = value; }
+
+        private ConfigPresenter Listboxpresenter;
+        private List<string> testinterface;
         public Configform()
         {
             InitializeComponent();
@@ -34,6 +38,25 @@ namespace Abschlussprojekt_wieSchneider
             {
                 MessageBox.Show("Funkt nicht");
             }
+            
+        }
+
+        private void UpdateList()
+        {
+            
+            listBox1.Items.Clear();
+
+            for(int i = 0; i < testinterface.Count; i++)
+            {
+                listBox1.Items.Add(testinterface[i]);
+            }
+        }
+
+        private void btn_Import_Click(object sender, EventArgs e)
+        {
+            Listboxpresenter = new ConfigPresenter();
+            Listboxpresenter.LoadText(this);
+            UpdateList();
         }
     }
 }
