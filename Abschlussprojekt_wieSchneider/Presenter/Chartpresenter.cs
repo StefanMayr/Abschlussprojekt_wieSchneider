@@ -9,16 +9,20 @@ namespace Abschlussprojekt_wieSchneider
 {
     class Chartpresenter
     {
-        //Einstieg vom Main hier in den Chartpresenter
-        //Startet die ChartForm über den Presenter
         private Chartform newchartform;
+        private IConnectChartform Connectchartformandpresenter;
 
         //Für Daten
         DataList DatatoChart;
 
         public Chartpresenter()
         {
+             
+        }
 
+        public Chartpresenter(IConnectChartform view)
+        {
+            Connectchartformandpresenter = view;
         }
 
         public void LoadDatatoChart(string selectedState)
@@ -26,12 +30,13 @@ namespace Abschlussprojekt_wieSchneider
             DatatoChart = new DataList();
             //Download the Data for the Chart
             DatatoChart.DownloadDataforChartandConvert(selectedState);
-            
+            ConnectChartformandPresenter();
         }
 
         public void ConnectChartformandPresenter()
         {
-
+            //Keine Verbindung
+            Connectchartformandpresenter.Chartlist = DatatoChart.ConvertedDataforList;
         }
 
         /// <summary>

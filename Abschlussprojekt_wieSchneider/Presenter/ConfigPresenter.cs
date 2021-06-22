@@ -7,16 +7,21 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    class ConfigPresenter
+    internal class ConfigPresenter
     {
         //Für Bundeslandliste
         private Configform mynewConfig;
-        private IConnectConfig ConfigConnect;
         //Test verbinden Bundeslandliste mit Configview
         private DataList Bundeslandlist;
 
-        //
+        //Interfaces
+        private IConnectConfig ConfigConnect;
+        private IConnectChartform Übergabe;
 
+        //Für Umweg zum Chartpresenter für Interfaceübergabe
+        private Chartpresenter Umweg;
+
+        //
         public ConfigPresenter()
         {
 
@@ -27,18 +32,18 @@ namespace Abschlussprojekt_wieSchneider
             mynewConfig = myConfigform;
         }
 
-        public ConfigPresenter(Configform mysecondConfigform, IConnectConfig input)
+        public ConfigPresenter(bool j, bool k, IConnectChartform input)
         {
-            mynewConfig = mysecondConfigform;
-            ConfigConnect = input;
+            Übergabe = input;
         }
 
-        public void RunConfig()
+        public void RunConfig(IConnectChartform view)
         {
+            Übergabe = view;
             mynewConfig.ShowDialog();
         }
 
-        public void ConnectConfigandStalist()
+        public void ConnectConfigandStatelist()
         {
             //Testfilter.Textfeld = test.Textfeld;
             ConfigConnect.Bundeslandliste = Bundeslandlist.StatelistinModel;
@@ -50,8 +55,15 @@ namespace Abschlussprojekt_wieSchneider
             Bundeslandlist = new DataList();
             Bundeslandlist.Stateloader();
             //Connect Presenter and View
-            ConnectConfigandStalist();
+            ConnectConfigandStatelist();
+        }
 
+        public void NextstopChartpresenter(string selectedtext)
+        {
+            //hier liegt Problem
+            //Übergabe ist null
+            Umweg = new Chartpresenter(Übergabe);
+            Umweg.LoadDatatoChart(selectedtext);
         }
     }
 }

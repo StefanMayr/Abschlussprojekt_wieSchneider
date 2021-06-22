@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    public partial class Configform : Form, IConnectConfig
+    internal partial class Configform : Form, IConnectConfig
     {
         //Für Bundeslandliste
         List<string> IConnectConfig.Bundeslandliste{ get => testinterface; set => testinterface = value; }
@@ -19,10 +19,13 @@ namespace Abschlussprojekt_wieSchneider
         private ConfigPresenter Listboxpresenter;
         private List<string> testinterface;
 
+        private IConnectChartform Testobgeht;
+
         //Für Graph
-        private Chartpresenter Chartformpresenter;
-        public Configform()
+        //private Chartpresenter Chartformpresenter;
+        public Configform(IConnectChartform view)
         {
+            Testobgeht = view;
             InitializeComponent();
         }
 
@@ -53,9 +56,12 @@ namespace Abschlussprojekt_wieSchneider
             if(listBox1.SelectedItem != null)
             {
                 //Zum Models und mit den Daten in die Chartform
-                Chartformpresenter = new Chartpresenter();
+                //hier übergeben
+                Listboxpresenter = new ConfigPresenter(true, true, Testobgeht);
+
                 //Funktion
-                Chartformpresenter.LoadDatatoChart(listBox1.SelectedItem.ToString());
+                Listboxpresenter.NextstopChartpresenter(listBox1.SelectedItem.ToString());
+                this.Close();
             }
             else
             {

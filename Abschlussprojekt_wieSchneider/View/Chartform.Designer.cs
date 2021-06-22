@@ -52,6 +52,7 @@
             this.btn_reload = new System.Windows.Forms.Button();
             this.btn_progend = new System.Windows.Forms.Button();
             this.Testbutton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.basisstructureDataBindingSource)).BeginInit();
@@ -245,11 +246,22 @@
             this.Testbutton.UseVisualStyleBackColor = true;
             this.Testbutton.Click += new System.EventHandler(this.Testbutton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1040, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Chartform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1203, 552);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Testbutton);
             this.Controls.Add(this.btn_progend);
             this.Controls.Add(this.btn_reload);
@@ -301,6 +313,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn monat11DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn monat12DataGridViewTextBoxColumn;
         private System.Windows.Forms.Button Testbutton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
