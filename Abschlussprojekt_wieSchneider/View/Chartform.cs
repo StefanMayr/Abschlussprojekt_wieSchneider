@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    public partial class Chartform : Form//, IConnectConfig //, IConnectChartform
+    public partial class Chartform : Form, IConnectChartform
     {
+        List<DataList> IConnectChartform.Chartlist { get => Listtopresent; set => Listtopresent = value; }
+        private List<DataList> Listtopresent;
         //string IConnectConfig.Textfeld { get => textBox1.Text; set => textBox1.Text = value; }
         //string IConnectConfig.ReturnTextfeld { get => textBox2.Text; set => textBox2.Text = value; }
         public Chartform()

@@ -55,5 +55,10 @@ namespace Abschlussprojekt_wieSchneider
             return $"{State}";
         }
 
+        public bool EqualTextandState(string selectstring)
+        {
+            bool test = false;
+            return test = String.Equals($"{State}", selectstring);
+        }
     }
 }

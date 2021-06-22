@@ -25,6 +25,12 @@ namespace Abschlussprojekt_wieSchneider
         {
             DatatoChart = new DataList();
             //Download the Data for the Chart
+            DatatoChart.DownloadDataforChartandConvert(selectedState);
+            
+        }
+
+        public void ConnectChartformandPresenter()
+        {
 
         }
 
