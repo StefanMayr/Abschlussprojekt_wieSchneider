@@ -19,21 +19,23 @@ namespace Abschlussprojekt_wieSchneider
         private ConfigPresenter Listboxpresenter;
         private List<string> testinterface;
 
+        //INterface des Charts
         private IConnectChartform Testobgeht;
 
-        //Für Graph
-        //private Chartpresenter Chartformpresenter;
+        //KOnstruktor
         public Configform(IConnectChartform view)
         {
             Testobgeht = view;
             InitializeComponent();
         }
 
+        //Schließen button
         private void Testbutton2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Priate Funktion die die Strings der Bundesländer in die Listbox lädt
         private void UpdateList()
         {
             listBox1.Items.Clear();
@@ -44,6 +46,7 @@ namespace Abschlussprojekt_wieSchneider
             }
         }
 
+        //Funktion lädt die Bundeländer
         private void btn_Import_Click(object sender, EventArgs e)
         {
             Listboxpresenter = new ConfigPresenter();
@@ -51,6 +54,7 @@ namespace Abschlussprojekt_wieSchneider
             UpdateList();
         }
 
+        //Funktion schickt Befehl ins Model die Daten in des ausgewählten BUndeslandes in die Chart zu laden
         private void btn_Present_Click(object sender, EventArgs e)
         {
             if(listBox1.SelectedItem != null)

@@ -8,6 +8,9 @@ namespace Abschlussprojekt_wieSchneider
 {
     interface IDownload
     {
+        //Interface mit zwei Methoden zum Downloaden
+        //ReadFile wird zum Download der Daten verwendet
+        //WriteFile ist nicht implementiert / keine Ahnung ob das überhaupt gefragt ist
         bool ReadFile(string path, string filename);
         bool WriteFile(string path, string filename);
     }

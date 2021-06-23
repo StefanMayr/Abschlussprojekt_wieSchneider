@@ -12,15 +12,17 @@ namespace Abschlussprojekt_wieSchneider
 {
     public partial class Chartform : Form, IConnectChartform
     {
+        //Verbindung Interface
         List<DataList> IConnectChartform.Chartlist { get => Listtopresent; set => Listtopresent = value; }
+        //INterface gibt Daten an dieses private Objekt um die von hier in das Chart zu laden
         private List<DataList> Listtopresent;
-        //string IConnectConfig.Textfeld { get => textBox1.Text; set => textBox1.Text = value; }
-        //string IConnectConfig.ReturnTextfeld { get => textBox2.Text; set => textBox2.Text = value; }
+        
         public Chartform()
         {
             InitializeComponent();
         }
 
+        //Funktion noch vom Test / Daten manuell laden,Teil von Schneider nicht von uns => kann dann zuletzt gelöscht werden 
         private void btn_conf_Click(object sender, EventArgs e)
         {
             //Kopf 
@@ -61,6 +63,7 @@ namespace Abschlussprojekt_wieSchneider
             }
         }
 
+        //War auch schon da, ist glaube ich die Verbindung des DataGrids zum Model
         private void Form1_Load(object sender, EventArgs e)
         {
             basisstructureDataBindingSource.DataSource = new List<BasisstructureData>();
@@ -76,6 +79,9 @@ namespace Abschlussprojekt_wieSchneider
 
         }
 
+        //Funktion von uns
+        //Lädt die Daten der Liste dann ins Chart
+        //MUss noch ausgelagert werden
         public void Loadchart()
         {
             //Kopf 
@@ -85,7 +91,7 @@ namespace Abschlussprojekt_wieSchneider
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             // monate 1-12
             objChart.AxisX.Minimum = 1;
-            objChart.AxisX.Maximum = 12;
+            objChart.AxisX.Maximum = 16;
             // tempe
             objChart.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             objChart.AxisY.Minimum = 0;
@@ -200,6 +206,8 @@ namespace Abschlussprojekt_wieSchneider
             }
         }
 
+        //Test button 
+        //Ruft die Funktion auf um die Daten in die Lsite zu laden
         private void button1_Click(object sender, EventArgs e)
         {
             Loadchart();

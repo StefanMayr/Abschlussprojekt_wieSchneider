@@ -18,6 +18,7 @@ namespace Abschlussprojekt_wieSchneider
             //default constructor
         }
 
+        //Readfile zum einfachen Downloaden der rohen Daten
         public bool ReadFile(string input2, string input)
         {
             List<BasisstructureData> downloaddata = new List<BasisstructureData>();
@@ -93,18 +94,19 @@ namespace Abschlussprojekt_wieSchneider
                 return false;
             }
 
-            //Liste wegschicken (noch nicht erstellt)
-            //Code
             for (int i = 0; i < Rawdata.Length; i++)
             {
                 downloaddata.Add(Rawdata[i]);
             }
+
+            //Zuweisung zu den Properties
             Teststrinback = Rawdata;
             Rawdownload = downloaddata;
 
             return true;
         }
 
+        //Nicht implementiert
         public bool WriteFile(string input, string input2)
         {
             return false;
