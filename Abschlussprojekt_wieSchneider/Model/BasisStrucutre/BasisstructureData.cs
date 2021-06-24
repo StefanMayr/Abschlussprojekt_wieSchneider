@@ -70,5 +70,110 @@ namespace Abschlussprojekt_wieSchneider
             bool test = false;
             return test = String.Equals($"{State}", selectstring);
         }
+
+        public double GetPropertyforArithmetic(string selectstring)
+        {
+            bool ConfirmedCasesbool = false;
+            bool Deathsbool = false;
+            bool Recoveredbool = false;
+            bool Hospitalizationbool = false;
+            bool IntensiveCarebool = false;
+            bool Testedbool = false;
+            bool TestedPCRbool = false;
+            bool TestedANTbool = false;
+            ConfirmedCasesbool = String.Equals($"{ConfirmedCases}", selectstring);
+            if(ConfirmedCasesbool == true)
+            {
+                return Convert.ToDouble(ConfirmedCases);
+            }
+            Deathsbool = String.Equals($"{Deaths}", selectstring);
+            if (Deathsbool == true)
+            {
+                return Convert.ToDouble(Deaths);
+            }
+            Recoveredbool = String.Equals($"{Recovered}", selectstring);
+            if (Recoveredbool == true)
+            {
+                return Convert.ToDouble(Recovered);
+            }
+            Hospitalizationbool = String.Equals($"{Hospitalizations}", selectstring);
+            if (Hospitalizationbool == true)
+            {
+                return Convert.ToDouble(Hospitalizations);
+            }
+            IntensiveCarebool = String.Equals($"{IntenisveCare}", selectstring);
+            if (IntensiveCarebool == true)
+            {
+                return Convert.ToDouble(IntenisveCare);
+            }
+            Testedbool = String.Equals($"{Tested}", selectstring);
+            if (Testedbool == true)
+            {
+                return Convert.ToDouble(Tested);
+            }
+            TestedPCRbool = String.Equals($"{TestedPCR}", selectstring);
+            if (TestedPCRbool == true)
+            {
+                return Convert.ToDouble(TestedPCR);
+            }
+            TestedANTbool = String.Equals($"{TestedANT}", selectstring);
+            if (TestedANTbool == true)
+            {
+                return Convert.ToDouble(TestedANT);
+            }
+            return 0;
+        }
+
+        public void SetProperty(string selectstring, double value)
+        {
+            bool ConfirmedCasesbool = false;
+            bool Deathsbool = false;
+            bool Recoveredbool = false;
+            bool Hospitalizationbool = false;
+            bool IntensiveCarebool = false;
+            bool Testedbool = false;
+            bool TestedPCRbool = false;
+            bool TestedANTbool = false;
+            ConfirmedCasesbool = String.Equals($"{ConfirmedCases}", selectstring);
+            if (ConfirmedCasesbool == true)
+            {
+                ConfirmedCases = value;
+            }
+            Deathsbool = String.Equals($"{Deaths}", selectstring);
+            if (Deathsbool == true)
+            {
+                Deaths = value;
+            }
+            Recoveredbool = String.Equals($"{Recovered}", selectstring);
+            if (Recoveredbool == true)
+            {
+                Recovered = value;
+            }
+            Hospitalizationbool = String.Equals($"{Hospitalizations}", selectstring);
+            if (Hospitalizationbool == true)
+            {
+                Hospitalizations = value;
+            }
+            IntensiveCarebool = String.Equals($"{IntenisveCare}", selectstring);
+            if (IntensiveCarebool == true)
+            {
+                IntenisveCare = value;
+            }
+            Testedbool = String.Equals($"{Tested}", selectstring);
+            if (Testedbool == true)
+            {
+                Tested = value;
+            }
+            TestedPCRbool = String.Equals($"{TestedPCR}", selectstring);
+            if (TestedPCRbool == true)
+            {
+                TestedPCR = value;
+            }
+            TestedANTbool = String.Equals($"{TestedANT}", selectstring);
+            if (TestedANTbool == true)
+            {
+                TestedANT = value;
+            }
+        }
     }
 }

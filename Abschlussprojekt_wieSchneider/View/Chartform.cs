@@ -95,24 +95,24 @@ namespace Abschlussprojekt_wieSchneider
             // tempe
             objChart.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             objChart.AxisY.Minimum = 0;
-            objChart.AxisY.Maximum = 24000;
+            objChart.AxisY.Maximum = 480;//24000
             // clear
             chart1.Series.Clear();
 
             Random random = new Random();
 
-                string name = "Confirmed Cases";
-                chart1.Series.Add(name);
-                chart1.Series[name].Color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
-                chart1.Series[name].Legend = "Legend1";
-                chart1.Series[name].ChartArea = "ChartArea1";
-                chart1.Series[name].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            string name = "Confirmed Cases";
+            chart1.Series.Add(name);
+            chart1.Series[name].Color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+            chart1.Series[name].Legend = "Legend1";
+            chart1.Series[name].ChartArea = "ChartArea1";
+            chart1.Series[name].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 
-                for (int i = 0; i < 16; i++)
-                {
-                    //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                    chart1.Series[name].Points.AddXY(i, Listtopresent[i].ConfirmedCases);
-                }
+            for (int i = 0; i < 16; i++)
+            {
+                //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
+                chart1.Series[name].Points.AddXY(i + 1, Listtopresent[i].ConfirmedCases);
+            }
 
             string name2 = "Deaths";
             chart1.Series.Add(name2);
@@ -124,7 +124,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name2].Points.AddXY(i, Listtopresent[i].Deaths);
+                chart1.Series[name2].Points.AddXY(i + 1, Listtopresent[i].Deaths);
             }
 
             string name3 = "Recovered";
@@ -137,7 +137,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name3].Points.AddXY(i, Listtopresent[i].Recovered);
+                chart1.Series[name3].Points.AddXY(i + 1, Listtopresent[i].Recovered);
             }
 
             string name4 = "Hospitalization";
@@ -150,7 +150,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name4].Points.AddXY(i, Listtopresent[i].Hospitalizations);
+                chart1.Series[name4].Points.AddXY(i + 1, Listtopresent[i].Hospitalizations);
             }
 
             string name5 = "Intensive Care";
@@ -163,7 +163,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name5].Points.AddXY(i, Listtopresent[i].IntenisveCare);
+                chart1.Series[name5].Points.AddXY(i + 1, Listtopresent[i].IntenisveCare);
             }
 
             string name6 = "Tested";
@@ -176,7 +176,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name6].Points.AddXY(i, Listtopresent[i].Tested);
+                chart1.Series[name6].Points.AddXY(i + 1, Listtopresent[i].Tested);
             }
 
             string name7 = "TestedPCR";
@@ -189,7 +189,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name7].Points.AddXY(i, Listtopresent[i].TestedPCR);
+                chart1.Series[name7].Points.AddXY(i + 1, Listtopresent[i].TestedPCR);
             }
 
             string name8 = "TestedANT";
@@ -202,7 +202,7 @@ namespace Abschlussprojekt_wieSchneider
             for (int i = 0; i < 16; i++)
             {
                 //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
-                chart1.Series[name8].Points.AddXY(i, Listtopresent[i].TestedANT);
+                chart1.Series[name8].Points.AddXY(i + 1, Listtopresent[i].TestedANT);
             }
         }
 

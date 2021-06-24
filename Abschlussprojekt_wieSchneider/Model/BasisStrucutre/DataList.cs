@@ -64,41 +64,17 @@ namespace Abschlussprojekt_wieSchneider
             //Aufgerufen wenn Download erfolgreich
             if (j == true)
             {
-                for(int i = 0; i < Filedownloader.Rawdownload.Count; i++)
-                {
-                    //Die Vorschleife zählt herunter und wählt vergleicht die Zeilen(Bundesländer) mit dem ausgewählten Bundesland
-                    //IN den Rohdaten sind nämlich alle Bundesländer enthalten
-                    //Der Filter holt sich nur die Daten vom Bundesland das augewählt wurde (selectedtext)
-                    if(Filedownloader.Rawdownload[i].EqualTextandState(selectedtext) == true)
-                    {
-                        //For wird gleich abgebrochen
-                        //Kann vl besser gemacht werden
-                        //k++ wird als unerreichbarer Code angezeigt
-                        for (int k = ConvertList.Count; k < ConvertList.Count + 1; k++)
-                        {
-                            ConvertList.Add(new DataList());
-                            ConvertList[k].Date = Filedownloader.Rawdownload[i].Date;
-                            ConvertList[k].ConfirmedCases = Filedownloader.Rawdownload[i].ConfirmedCases;
-                            ConvertList[k].Deaths = Filedownloader.Rawdownload[i].Deaths;
-                            ConvertList[k].Recovered = Filedownloader.Rawdownload[i].Recovered;
-                            ConvertList[k].Hospitalizations = Filedownloader.Rawdownload[i].Hospitalizations;
-                            ConvertList[k].IntenisveCare = Filedownloader.Rawdownload[i].IntenisveCare;
-                            ConvertList[k].Tested = Filedownloader.Rawdownload[i].Tested;
-                            ConvertList[k].TestedPCR = Filedownloader.Rawdownload[i].TestedPCR;
-                            ConvertList[k].TestedANT = Filedownloader.Rawdownload[i].TestedANT;
-                            break;
-                        }
-
-                    }
-                }
-
-
+                //Filter1 funkt
+                //Filter2 Beim bool testet musseigeneFunktion gebaut werden da er sonst nur den ´double in den string umwandelt
+                ConvertList = Filter1(Filedownloader.Rawdownload, selectedtext);
+                ConvertedDataforList = Filter2(selectedtext, ConvertList);
                 //Diese Funktion rechnet jeweils 7 Tage zu einer Woche zusammen
                 //Die Rohdaten enthält als Objekte die einzelnen Tage (107 Tage)
                 //Diese werden hier zu 15 vollen und einer Woche mit 2 Tage zusammengefasst
                 //Die Werte sind das arithmetische Mittel 
 
                 //Da hier viele Schritte des öfteren Auftreten könnte sie vl in einer Funktion zusammengefasst werden
+                /*
                 int Laufvariable = 0;
                 for (int l = 0; l < 15; l++)
                 {
@@ -249,9 +225,79 @@ namespace Abschlussprojekt_wieSchneider
 
                     
                 }
-
+                */
             }
-           
+
+            bool J = true;
         }
+
+        private List<DataList> Filter1(List<BasisstructureData> Rawdownload, string selectedtext)
+        {
+            List<DataList> Umwandlungsliste = new List<DataList>();
+            for (int i = 0; i < Filedownloader.Rawdownload.Count; i++)
+            {
+                
+                if (Filedownloader.Rawdownload[i].EqualTextandState(selectedtext) == true)
+                {
+                    int k = Umwandlungsliste.Count;
+                    Umwandlungsliste.Add(new DataList());
+                    Umwandlungsliste[k].Date = Rawdownload[i].Date;
+                    Umwandlungsliste[k].ConfirmedCases = Rawdownload[i].ConfirmedCases;
+                    Umwandlungsliste[k].Deaths = Rawdownload[i].Deaths;
+                    Umwandlungsliste[k].Recovered = Rawdownload[i].Recovered;
+                    Umwandlungsliste[k].Hospitalizations = Rawdownload[i].Hospitalizations;
+                    Umwandlungsliste[k].IntenisveCare = Rawdownload[i].IntenisveCare;
+                    Umwandlungsliste[k].Tested = Rawdownload[i].Tested;
+                    Umwandlungsliste[k].TestedPCR = Rawdownload[i].TestedPCR;
+                    Umwandlungsliste[k].TestedANT = Rawdownload[i].TestedANT;
+                }
+            }
+            return Umwandlungsliste;
+        }
+
+        private List<DataList> Filter2(string selectedtext, List<DataList> BearbeitendeListe)
+        {
+            List<DataList> PrivateÜbergabeListemitfertigenDaten = new List<DataList>();
+            int Laufvariable = 0;
+            int daysoftheweek = 7;
+            for(int i = 0; i < 16; i++)
+            {
+                PrivateÜbergabeListemitfertigenDaten.Add(new DataList());
+                PrivateÜbergabeListemitfertigenDaten[i].State = selectedtext;
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "ConfirmedCases");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Deaths");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Recovered");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Hospitalization");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "IntensiveCare");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Tested");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedPCR");
+                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedANT");
+                if((BearbeitendeListe.Count - Laufvariable) >= 7)
+                {
+                    Laufvariable = Laufvariable + 7;
+                }
+                if ((BearbeitendeListe.Count - Laufvariable) < 7)
+                {
+                    Laufvariable = (BearbeitendeListe.Count - Laufvariable);
+                    daysoftheweek = (BearbeitendeListe.Count - Laufvariable);
+                }
+            }
+            return PrivateÜbergabeListemitfertigenDaten;
+        }
+
+        private DataList Arithmeticmean(int Laufvariable, int daysofweek, List<DataList> MyListtomaketheAM, string Property)
+        {
+            double sum = 0;
+            DataList Returnobject = new DataList();
+            for (int g = 0; g < daysofweek; g++)
+            {
+                sum = sum + (MyListtomaketheAM[Laufvariable + g].GetPropertyforArithmetic(Property));
+            }
+            sum = sum / daysofweek;
+            Returnobject.SetProperty(Property, sum);
+            
+            return Returnobject;
+        }
+
     }
 }
