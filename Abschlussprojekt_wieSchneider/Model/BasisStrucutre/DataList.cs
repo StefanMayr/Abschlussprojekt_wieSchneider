@@ -227,8 +227,6 @@ namespace Abschlussprojekt_wieSchneider
                 }
                 */
             }
-
-            bool J = true;
         }
 
         private List<DataList> Filter1(List<BasisstructureData> Rawdownload, string selectedtext)
@@ -264,14 +262,14 @@ namespace Abschlussprojekt_wieSchneider
             {
                 PrivateÜbergabeListemitfertigenDaten.Add(new DataList());
                 PrivateÜbergabeListemitfertigenDaten[i].State = selectedtext;
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "ConfirmedCases");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Deaths");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Recovered");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Hospitalization");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "IntensiveCare");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Tested");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedPCR");
-                PrivateÜbergabeListemitfertigenDaten[i].Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedANT");
+                PrivateÜbergabeListemitfertigenDaten[i].ConfirmedCases = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "ConfirmedCases");
+                PrivateÜbergabeListemitfertigenDaten[i].Deaths = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Deaths");
+                PrivateÜbergabeListemitfertigenDaten[i].Recovered = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Recovered");
+                PrivateÜbergabeListemitfertigenDaten[i].Hospitalizations = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Hospitalization");
+                PrivateÜbergabeListemitfertigenDaten[i].IntenisveCare = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "IntensiveCare");
+                PrivateÜbergabeListemitfertigenDaten[i].Tested = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Tested");
+                PrivateÜbergabeListemitfertigenDaten[i].TestedPCR = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedPCR");
+                PrivateÜbergabeListemitfertigenDaten[i].TestedANT = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedANT");
                 if((BearbeitendeListe.Count - Laufvariable) >= 7)
                 {
                     Laufvariable = Laufvariable + 7;
@@ -285,18 +283,14 @@ namespace Abschlussprojekt_wieSchneider
             return PrivateÜbergabeListemitfertigenDaten;
         }
 
-        private DataList Arithmeticmean(int Laufvariable, int daysofweek, List<DataList> MyListtomaketheAM, string Property)
+        private double Arithmeticmean(int Laufvariable, int daysofweek, List<DataList> MyListtomaketheAM, string Property)
         {
             double sum = 0;
-            DataList Returnobject = new DataList();
             for (int g = 0; g < daysofweek; g++)
             {
                 sum = sum + (MyListtomaketheAM[Laufvariable + g].GetPropertyforArithmetic(Property));
             }
-            sum = sum / daysofweek;
-            Returnobject.SetProperty(Property, sum);
-            
-            return Returnobject;
+            return sum;
         }
 
     }

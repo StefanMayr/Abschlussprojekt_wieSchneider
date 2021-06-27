@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Reflection;
 
 namespace Abschlussprojekt_wieSchneider
 {
@@ -81,42 +82,43 @@ namespace Abschlussprojekt_wieSchneider
             bool Testedbool = false;
             bool TestedPCRbool = false;
             bool TestedANTbool = false;
-            ConfirmedCasesbool = String.Equals($"{ConfirmedCases}", selectstring);
+            //noch bearbeiten
+            ConfirmedCasesbool = String.Equals($"ConfirmedCases", selectstring);
             if(ConfirmedCasesbool == true)
             {
                 return Convert.ToDouble(ConfirmedCases);
             }
-            Deathsbool = String.Equals($"{Deaths}", selectstring);
+            Deathsbool = String.Equals($"Deaths", selectstring);
             if (Deathsbool == true)
             {
                 return Convert.ToDouble(Deaths);
             }
-            Recoveredbool = String.Equals($"{Recovered}", selectstring);
+            Recoveredbool = String.Equals($"Recovered", selectstring);
             if (Recoveredbool == true)
             {
                 return Convert.ToDouble(Recovered);
             }
-            Hospitalizationbool = String.Equals($"{Hospitalizations}", selectstring);
+            Hospitalizationbool = String.Equals($"Hospitalization", selectstring);
             if (Hospitalizationbool == true)
             {
                 return Convert.ToDouble(Hospitalizations);
             }
-            IntensiveCarebool = String.Equals($"{IntenisveCare}", selectstring);
+            IntensiveCarebool = String.Equals($"IntensiveCare", selectstring);
             if (IntensiveCarebool == true)
             {
                 return Convert.ToDouble(IntenisveCare);
             }
-            Testedbool = String.Equals($"{Tested}", selectstring);
+            Testedbool = String.Equals($"Tested", selectstring);
             if (Testedbool == true)
             {
                 return Convert.ToDouble(Tested);
             }
-            TestedPCRbool = String.Equals($"{TestedPCR}", selectstring);
+            TestedPCRbool = String.Equals($"TestedPCR", selectstring);
             if (TestedPCRbool == true)
             {
                 return Convert.ToDouble(TestedPCR);
             }
-            TestedANTbool = String.Equals($"{TestedANT}", selectstring);
+            TestedANTbool = String.Equals($"TestedANT", selectstring);
             if (TestedANTbool == true)
             {
                 return Convert.ToDouble(TestedANT);
@@ -134,42 +136,42 @@ namespace Abschlussprojekt_wieSchneider
             bool Testedbool = false;
             bool TestedPCRbool = false;
             bool TestedANTbool = false;
-            ConfirmedCasesbool = String.Equals($"{ConfirmedCases}", selectstring);
+            ConfirmedCasesbool = String.Equals($"ConfirmedCases", selectstring);
             if (ConfirmedCasesbool == true)
             {
                 ConfirmedCases = value;
             }
-            Deathsbool = String.Equals($"{Deaths}", selectstring);
+            Deathsbool = String.Equals($"Deaths", selectstring);
             if (Deathsbool == true)
             {
                 Deaths = value;
             }
-            Recoveredbool = String.Equals($"{Recovered}", selectstring);
+            Recoveredbool = String.Equals($"Recovered", selectstring);
             if (Recoveredbool == true)
             {
                 Recovered = value;
             }
-            Hospitalizationbool = String.Equals($"{Hospitalizations}", selectstring);
+            Hospitalizationbool = String.Equals($"Hospitalizations", selectstring);
             if (Hospitalizationbool == true)
             {
                 Hospitalizations = value;
             }
-            IntensiveCarebool = String.Equals($"{IntenisveCare}", selectstring);
+            IntensiveCarebool = String.Equals($"IntenisveCare", selectstring);
             if (IntensiveCarebool == true)
             {
                 IntenisveCare = value;
             }
-            Testedbool = String.Equals($"{Tested}", selectstring);
+            Testedbool = String.Equals($"Tested", selectstring);
             if (Testedbool == true)
             {
                 Tested = value;
             }
-            TestedPCRbool = String.Equals($"{TestedPCR}", selectstring);
+            TestedPCRbool = String.Equals($"TestedPCR", selectstring);
             if (TestedPCRbool == true)
             {
                 TestedPCR = value;
             }
-            TestedANTbool = String.Equals($"{TestedANT}", selectstring);
+            TestedANTbool = String.Equals($"TestedANT", selectstring);
             if (TestedANTbool == true)
             {
                 TestedANT = value;
