@@ -68,164 +68,7 @@ namespace Abschlussprojekt_wieSchneider
                 //Filter2 Beim bool testet musseigeneFunktion gebaut werden da er sonst nur den ´double in den string umwandelt
                 ConvertList = Filter1(Filedownloader.Rawdownload, selectedtext);
                 ConvertedDataforList = Filter2(selectedtext, ConvertList);
-                //Diese Funktion rechnet jeweils 7 Tage zu einer Woche zusammen
-                //Die Rohdaten enthält als Objekte die einzelnen Tage (107 Tage)
-                //Diese werden hier zu 15 vollen und einer Woche mit 2 Tage zusammengefasst
-                //Die Werte sind das arithmetische Mittel 
-
-                //Da hier viele Schritte des öfteren Auftreten könnte sie vl in einer Funktion zusammengefasst werden
-                /*
-                int Laufvariable = 0;
-                for (int l = 0; l < 15; l++)
-                {
-                    ConvertedDataforList.Add(new DataList());
-
-                    ConvertedDataforList[l].State = selectedtext;
-                    double sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].ConfirmedCases);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].ConfirmedCases = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].Deaths);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].Deaths = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].Recovered);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].Recovered = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].Hospitalizations);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].Hospitalizations = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].IntenisveCare);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].IntenisveCare = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].Tested);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].Tested = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].TestedPCR);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].TestedPCR = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 8; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable + g].TestedANT);
-                    }
-                    sum = sum / 7;
-                    ConvertedDataforList[l].TestedANT = sum;
-                    Laufvariable = Laufvariable + 7;
-                }
-
-
-                //Diese Funktion ist dieselbe wie die obere 
-                //Jedoch besteht die letzte Woche nur aus 2 Tagen => deswegen wurden Laufvariablen der Indexe angepasst
-                //Kann vl mit der oberen zusammen zu einer Funktion zusammengefasst werden zu einer Funktion
-                //Diese müsste jedoch die Tage abfragen und bei den letzten dann eben nur die zwei tage rechnen
-                int Laufvariable2 = 105;
-                for (int l = 15; l < 16; l++)
-                {
-                    ConvertedDataforList.Add(new DataList());
-
-                    ConvertedDataforList[l].State = selectedtext;
-                    double sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].ConfirmedCases);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].ConfirmedCases = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].Deaths);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].Deaths = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].Recovered);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].Recovered = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].Hospitalizations);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].Hospitalizations = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].IntenisveCare);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].IntenisveCare = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].Tested);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].Tested = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].TestedPCR);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].TestedPCR = sum;
-
-                    sum = 0;
-                    for (int g = 0; g < 2; g++)
-                    {
-                        sum = sum + (ConvertList[Laufvariable2 + g].TestedANT);
-                    }
-                    sum = sum / 2;
-                    ConvertedDataforList[l].TestedANT = sum;
-                    Laufvariable2 = Laufvariable2 + 1;
-
-                    
-                }
-                */
+                
             }
         }
 
@@ -290,7 +133,20 @@ namespace Abschlussprojekt_wieSchneider
             {
                 sum = sum + (MyListtomaketheAM[Laufvariable + g].GetPropertyforArithmetic(Property));
             }
+            sum = sum / daysofweek;
             return sum;
+        }
+
+        private List<DataList> Filter3(List<DataList> BearbeitendeListe)
+        {
+            List<DataList> FertigeListe = new List<DataList>();
+
+            if (BearbeitendeListe[0].State == "Burgenland")
+            {
+
+            }
+
+            return FertigeListe;
         }
 
     }

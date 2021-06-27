@@ -85,6 +85,8 @@
       <DependentUpon>Configform.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\BasisstructureData.datasource" />
+    <None Include="Properties\DataSources\Chartform.datasource" />
+    <None Include="Properties\DataSources\IConnectChartform.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

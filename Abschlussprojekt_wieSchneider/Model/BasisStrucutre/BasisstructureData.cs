@@ -13,29 +13,6 @@ namespace Abschlussprojekt_wieSchneider
     {
         public string Source { get; set; }
 
-
-        //nur Testproperties
-        //können dann geöscht werden
-        //sind nur für den Test vorhanden => diese sind mit den DataGrid der Chartform verbunden
-        //das heißt im Programmstart können unten Werte eingegeben werden werden mithilfe des DataGridview mit diesen Properties verbunden sind
-        //dadurch wird das Chart manuell erstellt
-        //für unser Programm eig nicht relevant
-        public double Monat1 { get; set; }
-        public double Monat2 { get; set; }
-        public double Monat3 { get; set; }
-
-        public double Monat4 { get; set; }
-
-        public double Monat5 { get; set; }
-        public double Monat6 { get; set; }
-        public double Monat7 { get; set; }
-        public double Monat8 { get; set; }
-        public double Monat9 { get; set; }
-        public double Monat10 { get; set; }
-        public double Monat11 { get; set; }
-        public double Monat12 { get; set; }
-
-
         //richtige Properties
         //Diese Klasse wird beim Filedownload erstellt 
         //Enthält sozusagen die Rohdaten des Files

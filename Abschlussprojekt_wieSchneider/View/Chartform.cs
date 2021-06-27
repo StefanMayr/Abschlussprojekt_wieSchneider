@@ -25,6 +25,7 @@ namespace Abschlussprojekt_wieSchneider
         //Funktion noch vom Test / Daten manuell laden,Teil von Schneider nicht von uns => kann dann zuletzt gelöscht werden 
         private void btn_conf_Click(object sender, EventArgs e)
         {
+            /*
             //Kopf 
 
             //Hier Text zum File
@@ -61,12 +62,13 @@ namespace Abschlussprojekt_wieSchneider
                     chart1.Series[t.Source].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
                 }
             }
+            */
         }
 
         //War auch schon da, ist glaube ich die Verbindung des DataGrids zum Model
         private void Form1_Load(object sender, EventArgs e)
         {
-            basisstructureDataBindingSource.DataSource = new List<BasisstructureData>();
+            //basisstructureDataBindingSource.DataSource = new List<BasisstructureData>();
         }
 
         //Nur Tesfunktion um Configfenster zu öffnen
@@ -211,6 +213,18 @@ namespace Abschlussprojekt_wieSchneider
         private void button1_Click(object sender, EventArgs e)
         {
             Loadchart();
+        }
+
+        private void btn_Config_Click(object sender, EventArgs e)
+        {
+            Configform NeueForm = new Configform(this);
+            ConfigPresenter myConfigpresenter = new ConfigPresenter(NeueForm);
+            myConfigpresenter.RunConfig(this);
+        }
+
+        private void btn_progend_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
