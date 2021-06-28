@@ -11,8 +11,6 @@ namespace Abschlussprojekt_wieSchneider
 {
     class BasisstructureData
     {
-        public string Source { get; set; }
-
         //richtige Properties
         //Diese Klasse wird beim Filedownload erstellt 
         //Enthält sozusagen die Rohdaten des Files
