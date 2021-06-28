@@ -50,13 +50,9 @@ namespace Abschlussprojekt_wieSchneider
         {
             //Filedownloader wird erstellt
             Filedownloader = new Filedownload();
-
-            //Gleich wie oben Download mit bool => weitermachen wenn Download erfolgreich
             bool j = Filedownloader.ReadFile("", "");
-
             //Hier wird eine Zwischenliste mit den Werten für das Bundesland erstellt
             List<DataList> ConvertList = new List<DataList>();
-
             //Wird wird das Property instanziert
             ConvertedDataforList = new List<DataList>();
 
@@ -68,8 +64,9 @@ namespace Abschlussprojekt_wieSchneider
                 //Filter2 Beim bool testet musseigeneFunktion gebaut werden da er sonst nur den ´double in den string umwandelt
                 ConvertList = Filter1(Filedownloader.Rawdownload, selectedtext);
                 ConvertedDataforList = Filter2(selectedtext, ConvertList);
-                
+                ConvertedDataforList = Filter3(ConvertedDataforList);
             }
+            bool ö = true;
         }
 
         private List<DataList> Filter1(List<BasisstructureData> Rawdownload, string selectedtext)
@@ -139,14 +136,119 @@ namespace Abschlussprojekt_wieSchneider
 
         private List<DataList> Filter3(List<DataList> BearbeitendeListe)
         {
-            List<DataList> FertigeListe = new List<DataList>();
+            //List<DataList> FertigeListe = new List<DataList>();
 
             if (BearbeitendeListe[0].State == "Burgenland")
             {
-
+                for(int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
             }
-
-            return FertigeListe;
+            if (BearbeitendeListe[0].State == "Kärnten")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Vorarlberg")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Tirol")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Salzburg")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Oberösterreich")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Niederösterreich")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Wien")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Steiermark")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            if (BearbeitendeListe[0].State == "Österreich")
+            {
+                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                {
+                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
+                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
+                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
+                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
+                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                }
+            }
+            return BearbeitendeListe;
         }
 
     }

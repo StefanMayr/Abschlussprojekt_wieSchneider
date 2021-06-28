@@ -77,7 +77,7 @@ namespace Abschlussprojekt_wieSchneider
             //HIer!!!!!
             Configform NeueForm = new Configform(this);
             ConfigPresenter myConfigpresenter = new ConfigPresenter(NeueForm);
-            myConfigpresenter.RunConfig(this);
+            myConfigpresenter.RunConfig();
 
         }
 
@@ -97,7 +97,7 @@ namespace Abschlussprojekt_wieSchneider
             // tempe
             objChart.AxisY.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             objChart.AxisY.Minimum = 0;
-            objChart.AxisY.Maximum = 480;//24000
+            objChart.AxisY.Maximum = 1000;//24000
             // clear
             chart1.Series.Clear();
 
@@ -219,7 +219,7 @@ namespace Abschlussprojekt_wieSchneider
         {
             Configform NeueForm = new Configform(this);
             ConfigPresenter myConfigpresenter = new ConfigPresenter(NeueForm);
-            myConfigpresenter.RunConfig(this);
+            myConfigpresenter.RunConfig();
         }
 
         private void btn_progend_Click(object sender, EventArgs e)

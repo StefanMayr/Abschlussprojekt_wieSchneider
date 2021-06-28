@@ -73,7 +73,10 @@ namespace Abschlussprojekt_wieSchneider
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedSource.Text = listBox1.SelectedItem.ToString();
+            if(listBox1.SelectedItems != null)
+            {
+                SelectedSource.Text = listBox1.SelectedItem.ToString();
+            }
         }
     }
 }
