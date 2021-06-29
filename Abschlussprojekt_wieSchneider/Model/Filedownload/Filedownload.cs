@@ -22,7 +22,7 @@ namespace Abschlussprojekt_wieSchneider
         public bool ReadFile(string input2, string input)
         {
             List<BasisstructureData> downloaddata = new List<BasisstructureData>();
-            input2 = @"C:\Users\Stefa\source\repos\Abschlussprojekt_wieSchneider\Abschlussprojekt_wieSchneider\Files";
+            input2 = @"C:\Users\Daniel\Documents\Programmieren\Project";
             input = "timeline-faelle-bundeslaender.csv";
             BasisstructureData[] Rawdata = new BasisstructureData[default];
             string helper = "";

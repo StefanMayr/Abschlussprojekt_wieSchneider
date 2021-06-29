@@ -26,7 +26,7 @@ namespace Abschlussprojekt_wieSchneider
         private void btn_conf_Click(object sender, EventArgs e)
         {
             //Kopf 
-
+            
             //Hier Text zum File
             var objChart = chart1.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
@@ -210,7 +210,14 @@ namespace Abschlussprojekt_wieSchneider
         //Ruft die Funktion auf um die Daten in die Lsite zu laden
         private void button1_Click(object sender, EventArgs e)
         {
-            Loadchart();
+            //Loadchart();
+            Chartpresenter presenter=new Chartpresenter();
+            presenter.Chart(this);
+        }
+
+        private void btn_progend_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Abschlussprojekt_wieSchneider
         //Private Membervariablen 
         private Chartform newchartform;
         private IConnectChartform Connectchartformandpresenter;
+        private ChartMaker chartmaker;
 
         //Für Daten
         DataList DatatoChart;
@@ -55,6 +56,10 @@ namespace Abschlussprojekt_wieSchneider
         {
             newchartform = chartform1;
             Application.Run(newchartform);
+        }
+        public void Chart(Chartform chart1)
+        {
+          chartmaker=new ChartMaker(chart1);
         }
     }
 }

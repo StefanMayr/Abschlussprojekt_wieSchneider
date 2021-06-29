@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartMaker.cs" />
     <Compile Include="Model\BasisStrucutre\DataList.cs" />
     <Compile Include="Interface\IConnectConfig.cs" />
     <Compile Include="Interface\IConnectChartform.cs" />
