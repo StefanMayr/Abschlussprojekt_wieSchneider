@@ -12,6 +12,7 @@ namespace Abschlussprojekt_wieSchneider
     {
         public static Chart Loaddata(Chart chart1, List<DataList> Listtopresent)
         {
+            //KOmmentar
             var objChart = chart1.ChartAreas[0];
             objChart.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
             // monate 1-12
