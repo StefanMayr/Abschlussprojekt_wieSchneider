@@ -78,7 +78,7 @@ namespace Abschlussprojekt_wieSchneider
 
                 for (int i = 0; i < 16; i++)
                 {
-                    //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]));
+                    //chart1.Series[t.State].Points.AddXY(i, Convert.ToInt32(t[$"Monat{i}"]))
                     chart1.Series[name].Points.AddXY(i, Listtopresent[i].case1);
                 }
 
