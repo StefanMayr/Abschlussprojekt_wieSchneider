@@ -14,11 +14,9 @@ namespace Abschlussprojekt_wieSchneider
     {
         //Für Bundeslandliste
         List<string> IConnectConfig.Bundeslandliste{ get => testinterface; set => testinterface = value; }
-
         //Für Bundeslandliste
         private ConfigPresenter Listboxpresenter;
         private List<string> testinterface;
-
         //INterface des Charts
         private IConnectChartform Testobgeht;
 
@@ -70,6 +68,14 @@ namespace Abschlussprojekt_wieSchneider
             else
             {
                 MessageBox.Show("Es wurde kein Element ausgewählt.", "Achtung");
+            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listBox1.SelectedItems != null)
+            {
+                SelectedSource.Text = listBox1.SelectedItem.ToString();
             }
         }
     }

@@ -47,11 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChartMaker.cs" />
+    <Compile Include="Model\BasisStrucutre\Filter.cs" />
     <Compile Include="Model\BasisStrucutre\DataList.cs" />
     <Compile Include="Interface\IConnectConfig.cs" />
     <Compile Include="Interface\IConnectChartform.cs" />
     <Compile Include="Interface\IDownload.cs" />
+    <Compile Include="View\Chartloader.cs" />
     <Compile Include="View\Configform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +87,8 @@
       <DependentUpon>Configform.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\BasisstructureData.datasource" />
+    <None Include="Properties\DataSources\Chartform.datasource" />
+    <None Include="Properties\DataSources\IConnectChartform.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

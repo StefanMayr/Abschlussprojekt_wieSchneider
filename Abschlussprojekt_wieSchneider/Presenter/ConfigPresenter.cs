@@ -45,9 +45,8 @@ namespace Abschlussprojekt_wieSchneider
         }
 
         //Funktion die die Form startet
-        public void RunConfig(IConnectChartform view)
+        public void RunConfig()
         {
-            Uergabe = view;
             mynewConfig.ShowDialog();
         }
 
