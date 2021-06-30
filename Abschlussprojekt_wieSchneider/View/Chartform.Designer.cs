@@ -36,6 +36,7 @@
             this.btn_progend = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Config = new System.Windows.Forms.Button();
+            this.Headline_lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -46,30 +47,31 @@
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(12, 12);
+            this.chart1.Location = new System.Drawing.Point(12, 63);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(1143, 418);
+            this.chart1.Size = new System.Drawing.Size(1215, 418);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 436);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 497);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1143, 145);
+            this.dataGridView1.Size = new System.Drawing.Size(1215, 226);
             this.dataGridView1.TabIndex = 1;
             // 
             // btn_progend
             // 
             this.btn_progend.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_progend.Location = new System.Drawing.Point(1177, 506);
+            this.btn_progend.Location = new System.Drawing.Point(1260, 648);
             this.btn_progend.Name = "btn_progend";
             this.btn_progend.Size = new System.Drawing.Size(150, 75);
             this.btn_progend.TabIndex = 4;
@@ -80,7 +82,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(1177, 104);
+            this.button1.Location = new System.Drawing.Point(1260, 156);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 64);
             this.button1.TabIndex = 6;
@@ -91,7 +93,7 @@
             // btn_Config
             // 
             this.btn_Config.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_Config.Location = new System.Drawing.Point(1177, 12);
+            this.btn_Config.Location = new System.Drawing.Point(1260, 63);
             this.btn_Config.Name = "btn_Config";
             this.btn_Config.Size = new System.Drawing.Size(150, 75);
             this.btn_Config.TabIndex = 7;
@@ -99,12 +101,23 @@
             this.btn_Config.UseVisualStyleBackColor = false;
             this.btn_Config.Click += new System.EventHandler(this.btn_Config_Click);
             // 
+            // Headline_lbl
+            // 
+            this.Headline_lbl.AutoSize = true;
+            this.Headline_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Headline_lbl.Location = new System.Drawing.Point(12, 12);
+            this.Headline_lbl.Name = "Headline_lbl";
+            this.Headline_lbl.Size = new System.Drawing.Size(216, 31);
+            this.Headline_lbl.TabIndex = 8;
+            this.Headline_lbl.Text = "Covid 19 Daten: ";
+            // 
             // Chartform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1350, 598);
+            this.ClientSize = new System.Drawing.Size(1422, 735);
+            this.Controls.Add(this.Headline_lbl);
             this.Controls.Add(this.btn_Config);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_progend);
@@ -115,6 +128,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,6 +152,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mOnat8DataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Config;
+        private System.Windows.Forms.Label Headline_lbl;
     }
 }
 
