@@ -14,28 +14,15 @@ namespace Abschlussprojekt_wieSchneider
     {
         //Verbindung Interface
         List<DataList> IConnectChartform.Chartlist { get => Listtopresent; set => Listtopresent = value; }
+
         //INterface gibt Daten an dieses private Objekt um die von hier in das Chart zu laden
         private List<DataList> Listtopresent;
-        
+        ConfigPresenter myConfigpresenter;
+
+
         public Chartform()
         {
             InitializeComponent();
-        }
-
-        //War auch schon da, ist glaube ich die Verbindung des DataGrids zum Model
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //basisstructureDataBindingSource.DataSource = new List<BasisstructureData>();
-        }
-
-        //Nur Tesfunktion um Configfenster zu öffnen
-        private void Testbutton_Click(object sender, EventArgs e)
-        {
-            //HIer!!!!!
-            Configform NeueForm = new Configform(this);
-            ConfigPresenter myConfigpresenter = new ConfigPresenter(NeueForm);
-            myConfigpresenter.RunConfig();
-
         }
 
         //Test button 
@@ -44,9 +31,10 @@ namespace Abschlussprojekt_wieSchneider
         {
             chart1 = Chartloader.Loaddata(chart1, Listtopresent);
 
+            dataGridView1.Rows.Clear();
             Headline_lbl.Text = "Covid 19 Daten: " + Listtopresent[0].State;
             dataGridView1.ColumnCount = 10;
-            this.dataGridView1.Rows.Add($"Woche", $"Bestätigte Fälle", $"Tode", $"Genesene", $"Hospitalisierungen", $"Intensiv Station", $"Getested", $"Getested PCR", $"Getested Antigen");
+            this.dataGridView1.Rows.Add($"Woche", $"Bestätigte Fälle [100/Einw.]", $"Tode", $"Genesene [100/Einw.]", $"Hospitalisierungen", $"Intensiv Station", $"Getested [10000/Einw.]", $"Getested PCR [10000/Einw.]", $"Getested Antigen [10000/Einw.]");
 
             for (int i = 0; i < Listtopresent.Count; i++)
             {
@@ -56,8 +44,7 @@ namespace Abschlussprojekt_wieSchneider
 
         private void btn_Config_Click(object sender, EventArgs e)
         {
-            Configform NeueForm = new Configform(this);
-            ConfigPresenter myConfigpresenter = new ConfigPresenter(NeueForm);
+            myConfigpresenter = new ConfigPresenter(this);
             myConfigpresenter.RunConfig();
         }
 

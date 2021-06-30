@@ -7,11 +7,14 @@ using System.Windows.Forms;
 
 namespace Abschlussprojekt_wieSchneider
 {
-    class Chartpresenter
+    class Chartpresenter 
     {
+        
         //Private Membervariablen 
         private Chartform newchartform;
         private IConnectChartform Connectchartformandpresenter;
+
+        
         //private ChartMaker chartmaker;
 
         //Für Daten
@@ -46,15 +49,17 @@ namespace Abschlussprojekt_wieSchneider
         {
             //Hier wird die Liste vom Model der Form übergeben
             Connectchartformandpresenter.Chartlist = DatatoChart.ConvertedDataforList;
+
         }
 
         /// <summary>
         /// Funktion um die Chartfomr zu starten
         /// </summary>
         /// <param name="chartform1"> wird im Main übergeben </param>
-        public void Run(Chartform chartform1)
+        public void Run()
         {
-            newchartform = chartform1;
+            newchartform = new Chartform();
+            //newchartform = chartform1;
             Application.Run(newchartform);
         }
         public void Chart(Chartform chart1)

@@ -21,12 +21,8 @@ namespace Abschlussprojekt_wieSchneider
             //Programm erzeugt hier den Chartpresenter
             //Dieser dient als Einstiegspunkt damit die Form immer über den Presenter wieder geöffnet werdne kann
             Chartpresenter newchartpresenter = new Chartpresenter();
-            newchartpresenter.Run(new Chartform());
+            newchartpresenter.Run();
 
-            //Nomraler Einstieg in die Form
-            //Für Test deaktiviert
-            //Fomr über Presenter starten
-            //Application.Run(new Chartform());
         }
     }
 }

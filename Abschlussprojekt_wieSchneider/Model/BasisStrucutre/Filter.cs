@@ -70,6 +70,7 @@ namespace Abschlussprojekt_wieSchneider
                 sum = sum + (MyListtomaketheAM[Laufvariable + g].GetPropertyforArithmetic(Property));
             }
             sum = sum / daysofweek;
+            sum = Math.Round(sum, 2);
             return sum;
         }
 

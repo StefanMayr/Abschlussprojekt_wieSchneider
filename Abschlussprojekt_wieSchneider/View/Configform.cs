@@ -20,6 +20,7 @@ namespace Abschlussprojekt_wieSchneider
         //INterface des Charts
         private IConnectChartform Testobgeht;
 
+
         //KOnstruktor
         public Configform(IConnectChartform view)
         {
@@ -47,7 +48,7 @@ namespace Abschlussprojekt_wieSchneider
         //Funktion lädt die Bundeländer
         private void btn_Import_Click(object sender, EventArgs e)
         {
-            Listboxpresenter = new ConfigPresenter();
+            Listboxpresenter = new ConfigPresenter(Testobgeht);
             Listboxpresenter.LoadText(this);
             UpdateList();
         }

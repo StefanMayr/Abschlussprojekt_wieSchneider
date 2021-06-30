@@ -25,16 +25,13 @@ namespace Abschlussprojekt_wieSchneider
         private Chartpresenter Umweg;
 
         //Leerer Konstruktor
-        public ConfigPresenter()
+        public ConfigPresenter(IConnectChartform input)
         {
-
+            Uergabe = input;
         }
 
         //Aufruf um Configform zu erstellen und dann zu starten
-        public ConfigPresenter(Configform myConfigform)
-        {
-            mynewConfig = myConfigform;
-        }
+        
 
         //Dritter überladener Konstruktor um Interface weiterzuschicken
         //Bool Werte haben keine Bedeutung, werden nur gebraucht damit genau dieser Konstruktor aufgerufen wird
@@ -47,6 +44,7 @@ namespace Abschlussprojekt_wieSchneider
         //Funktion die die Form startet
         public void RunConfig()
         {
+            mynewConfig = new Configform(Uergabe);
             mynewConfig.ShowDialog();
         }
 
