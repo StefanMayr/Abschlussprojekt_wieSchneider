@@ -8,187 +8,210 @@ namespace Abschlussprojekt_wieSchneider
 {
     static class Filter
     {
+        /// <summary>
+        /// Filter function for the states
+        /// </summary>
+        /// <param name="Rawdownload"></param>
+        /// <param name="selectedtext"></param>
+        /// <returns></returns>
         public static List<DataList> Statefilter(List<BasisstructureData> Rawdownload, string selectedtext)
         {
-            List<DataList> Umwandlungsliste = new List<DataList>();
+            List<DataList> Conversionlist = new List<DataList>();
             for (int i = 0; i < Rawdownload.Count; i++)
             {
 
                 if (Rawdownload[i].EqualTextandState(selectedtext) == true)
                 {
-                    int k = Umwandlungsliste.Count;
-                    Umwandlungsliste.Add(new DataList());
-                    Umwandlungsliste[k].Date = Rawdownload[i].Date;
-                    Umwandlungsliste[k].ConfirmedCases = Rawdownload[i].ConfirmedCases;
-                    Umwandlungsliste[k].Deaths = Rawdownload[i].Deaths;
-                    Umwandlungsliste[k].Recovered = Rawdownload[i].Recovered;
-                    Umwandlungsliste[k].Hospitalizations = Rawdownload[i].Hospitalizations;
-                    Umwandlungsliste[k].IntenisveCare = Rawdownload[i].IntenisveCare;
-                    Umwandlungsliste[k].Tested = Rawdownload[i].Tested;
-                    Umwandlungsliste[k].TestedPCR = Rawdownload[i].TestedPCR;
-                    Umwandlungsliste[k].TestedANT = Rawdownload[i].TestedANT;
+                    int k = Conversionlist.Count;
+                    Conversionlist.Add(new DataList());
+                    Conversionlist[k].Date = Rawdownload[i].Date;
+                    Conversionlist[k].ConfirmedCases = Rawdownload[i].ConfirmedCases;
+                    Conversionlist[k].Deaths = Rawdownload[i].Deaths;
+                    Conversionlist[k].Recovered = Rawdownload[i].Recovered;
+                    Conversionlist[k].Hospitalizations = Rawdownload[i].Hospitalizations;
+                    Conversionlist[k].IntenisveCare = Rawdownload[i].IntenisveCare;
+                    Conversionlist[k].Tested = Rawdownload[i].Tested;
+                    Conversionlist[k].TestedPCR = Rawdownload[i].TestedPCR;
+                    Conversionlist[k].TestedANT = Rawdownload[i].TestedANT;
                 }
             }
-            return Umwandlungsliste;
+            return Conversionlist;
         }
 
-        public static List<DataList> Calcarithmeticfilter(string selectedtext, List<DataList> BearbeitendeListe)
+        /// <summary>
+        /// Function to calculate arithmetic mean of the weeks
+        /// </summary>
+        /// <param name="selectedtext"></param>
+        /// <param name="Listtoprepare"></param>
+        /// <returns></returns>
+        public static List<DataList> Calcarithmeticfilter(string selectedtext, List<DataList> Listtoprepare)
         {
-            List<DataList> PrivateÜbergabeListemitfertigenDaten = new List<DataList>();
-            int Laufvariable = 0;
+            List<DataList> Transferlist = new List<DataList>();
+            int runvar = 0;
             int daysoftheweek = 7;
             for (int i = 0; i < 16; i++)
             {
-                PrivateÜbergabeListemitfertigenDaten.Add(new DataList());
-                PrivateÜbergabeListemitfertigenDaten[i].State = selectedtext;
-                PrivateÜbergabeListemitfertigenDaten[i].ConfirmedCases = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "ConfirmedCases");
-                PrivateÜbergabeListemitfertigenDaten[i].Deaths = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Deaths");
-                PrivateÜbergabeListemitfertigenDaten[i].Recovered = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Recovered");
-                PrivateÜbergabeListemitfertigenDaten[i].Hospitalizations = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Hospitalization");
-                PrivateÜbergabeListemitfertigenDaten[i].IntenisveCare = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "IntensiveCare");
-                PrivateÜbergabeListemitfertigenDaten[i].Tested = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "Tested");
-                PrivateÜbergabeListemitfertigenDaten[i].TestedPCR = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedPCR");
-                PrivateÜbergabeListemitfertigenDaten[i].TestedANT = Arithmeticmean(Laufvariable, daysoftheweek, BearbeitendeListe, "TestedANT");
-                if ((BearbeitendeListe.Count - Laufvariable) >= 7)
+                Transferlist.Add(new DataList());
+                Transferlist[i].State = selectedtext;
+                Transferlist[i].ConfirmedCases = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "ConfirmedCases");
+                Transferlist[i].Deaths = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "Deaths");
+                Transferlist[i].Recovered = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "Recovered");
+                Transferlist[i].Hospitalizations = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "Hospitalization");
+                Transferlist[i].IntenisveCare = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "IntensiveCare");
+                Transferlist[i].Tested = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "Tested");
+                Transferlist[i].TestedPCR = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "TestedPCR");
+                Transferlist[i].TestedANT = Arithmeticmean(runvar, daysoftheweek, Listtoprepare, "TestedANT");
+                if ((Listtoprepare.Count - runvar) >= 7)
                 {
-                    Laufvariable = Laufvariable + 7;
+                    runvar = runvar + 7;
                 }
-                if ((BearbeitendeListe.Count - Laufvariable) < 7)
+                if ((Listtoprepare.Count - runvar) < 7)
                 {
-                    Laufvariable = (BearbeitendeListe.Count - Laufvariable);
-                    daysoftheweek = (BearbeitendeListe.Count - Laufvariable);
+                    runvar = (Listtoprepare.Count - runvar);
+                    daysoftheweek = (Listtoprepare.Count - runvar);
                 }
             }
-            return PrivateÜbergabeListemitfertigenDaten;
+            return Transferlist;
         }
 
-        private static double Arithmeticmean(int Laufvariable, int daysofweek, List<DataList> MyListtomaketheAM, string Property)
+        /// <summary>
+        /// Private function, help to calculate the arithmeitc mean
+        /// </summary>
+        /// <param name="runvar"></param>
+        /// <param name="daysofweek"></param>
+        /// <param name="MyListtomaketheAM"></param>
+        /// <param name="Property"></param>
+        /// <returns></returns>
+        private static double Arithmeticmean(int runvar, int daysofweek, List<DataList> MyListtomaketheAM, string Property)
         {
             double sum = 0;
             for (int g = 0; g < daysofweek; g++)
             {
-                sum = sum + (MyListtomaketheAM[Laufvariable + g].GetPropertyforArithmetic(Property));
+                sum = sum + (MyListtomaketheAM[runvar + g].GetPropertyforArithmetic(Property));
             }
             sum = sum / daysofweek;
             sum = Math.Round(sum, 2);
             return sum;
         }
 
-        public static List<DataList> ScaleAxis(List<DataList> BearbeitendeListe)
+        /// <summary>
+        /// Function to scale the axis
+        /// </summary>
+        /// <param name="Listtoprepare"></param>
+        /// <returns></returns>
+        public static List<DataList> ScaleAxis(List<DataList> Listtoprepare)
         {
-            //List<DataList> FertigeListe = new List<DataList>();
-
-            if (BearbeitendeListe[0].State == "Burgenland")
+            if (Listtoprepare[0].State == "Burgenland")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Kärnten")
+            if (Listtoprepare[0].State == "Kärnten")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Vorarlberg")
+            if (Listtoprepare[0].State == "Vorarlberg")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Tirol")
+            if (Listtoprepare[0].State == "Tirol")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Salzburg")
+            if (Listtoprepare[0].State == "Salzburg")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Oberösterreich")
+            if (Listtoprepare[0].State == "Oberösterreich")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Niederösterreich")
+            if (Listtoprepare[0].State == "Niederösterreich")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Wien")
+            if (Listtoprepare[0].State == "Wien")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Steiermark")
+            if (Listtoprepare[0].State == "Steiermark")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            if (BearbeitendeListe[0].State == "Österreich")
+            if (Listtoprepare[0].State == "Österreich")
             {
-                for (int i = 0; i < BearbeitendeListe.Count; i++)
+                for (int i = 0; i < Listtoprepare.Count; i++)
                 {
-                    BearbeitendeListe[i].ConfirmedCases = BearbeitendeListe[i].ConfirmedCases / 100;
-                    BearbeitendeListe[i].Recovered = BearbeitendeListe[i].Recovered / 100;
-                    BearbeitendeListe[i].Tested = BearbeitendeListe[i].Tested / 10000;
-                    BearbeitendeListe[i].TestedPCR = BearbeitendeListe[i].TestedPCR / 10000;
-                    BearbeitendeListe[i].TestedANT = BearbeitendeListe[i].TestedANT / 10000;
+                    Listtoprepare[i].ConfirmedCases = Listtoprepare[i].ConfirmedCases / 100;
+                    Listtoprepare[i].Recovered = Listtoprepare[i].Recovered / 100;
+                    Listtoprepare[i].Tested = Listtoprepare[i].Tested / 10000;
+                    Listtoprepare[i].TestedPCR = Listtoprepare[i].TestedPCR / 10000;
+                    Listtoprepare[i].TestedANT = Listtoprepare[i].TestedANT / 10000;
                 }
             }
-            return BearbeitendeListe;
+            return Listtoprepare;
         }
     }
 }

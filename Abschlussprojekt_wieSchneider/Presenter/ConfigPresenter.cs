@@ -9,68 +9,56 @@ namespace Abschlussprojekt_wieSchneider
 {
     internal class ConfigPresenter
     {
-        //Für Bundeslandliste
-        private Configform mynewConfig;
-
-        //Objekt des Models
-        private DataList Bundeslandlist;
-
-        //Interfaces
-        //Hier beide da jene die Schnitttelle der Chart über die ConfigForm ins Model gelangt
-        //Namen müssen noch umbenannt werden
         private IConnectConfig ConfigConnect;
-        private IConnectChartform Uergabe;
+        private IConnectChartform ConnectertoChartform;
+        private Configform MynewConfig;
+        private DataList Statelistconfig;
+        private Chartpresenter MynewChartpresenter;
 
-        //Für Umweg zum Chartpresenter für Interfaceübergabe
-        private Chartpresenter Umweg;
-
-        //Leerer Konstruktor
+        //Default constructor
         public ConfigPresenter(IConnectChartform input)
         {
-            Uergabe = input;
+            ConnectertoChartform = input;
         }
 
-        //Aufruf um Configform zu erstellen und dann zu starten
-        
-
-        //Dritter überladener Konstruktor um Interface weiterzuschicken
-        //Bool Werte haben keine Bedeutung, werden nur gebraucht damit genau dieser Konstruktor aufgerufen wird
-        //Weil mit dem this (das bei Interfaces übergeben wird ruft er oft den falschen auf) => mit diesem geht es
+        //Constructor
         public ConfigPresenter(bool j, bool k, IConnectChartform input)
         {
-            Uergabe = input;
+            ConnectertoChartform = input;
         }
 
-        //Funktion die die Form startet
+        //Function to start the Configform
         public void RunConfig()
         {
-            mynewConfig = new Configform(Uergabe);
-            mynewConfig.ShowDialog();
+            MynewConfig = new Configform(ConnectertoChartform);
+            MynewConfig.ShowDialog();
         }
 
-        //Funktion die das Model mit der View verbindet
+        //Function to connect the Configform with the Statelist
         public void ConnectConfigandStatelist()
         {
-            ConfigConnect.Bundeslandliste = Bundeslandlist.StatelistinModel;
+            ConfigConnect.Stringlistwithstates = Statelistconfig.StatelistinModel;
         }
 
-        //Funktion lädt die BUndesländer
-        public void LoadText(IConnectConfig Configview)
+        //Function to load the States
+        public void LoadText(IConnectConfig Configview) //Testnewway tetser
         {
+            //tester = tetser;
+
             ConfigConnect = Configview;
-            Bundeslandlist = new DataList();
-            Bundeslandlist.Stateloader();
-            //Connect Presenter and View
+            Statelistconfig = new DataList();
+            Statelistconfig.Stateloader();
             ConnectConfigandStatelist();
+            //Statelistconfig.Importdata();
+            //Connectester();
         }
 
-        //Funktion schickt selectedtext (Bundeland) ins Model welches die Liste mit den Daten an die Chartform schickt
-        public void NextstopChartpresenter(string selectedtext)
+        //Function to connect the Configform with the Chartpresenter
+        public void NextstopChartpresenter(string selectedtext, string path)
         {
-            //hier liegt Problem
-            //Übergabe ist null
-            Umweg = new Chartpresenter(Uergabe);
-            Umweg.LoadDatatoChart(selectedtext);
+            MynewChartpresenter = new Chartpresenter(ConnectertoChartform);
+            MynewChartpresenter.LoadDatatoChart(selectedtext, path);
         }
+
     }
 }

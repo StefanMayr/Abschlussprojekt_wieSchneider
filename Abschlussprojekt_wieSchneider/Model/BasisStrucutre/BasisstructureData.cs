@@ -11,9 +11,7 @@ namespace Abschlussprojekt_wieSchneider
 {
     class BasisstructureData
     {
-        //richtige Properties
-        //Diese Klasse wird beim Filedownload erstellt 
-        //Enthält sozusagen die Rohdaten des Files
+        //Properties
         public string Date { get; set; }
 
         public string State { get; set; }
@@ -26,27 +24,20 @@ namespace Abschlussprojekt_wieSchneider
         public double TestedPCR { get; set; }
         public double TestedANT { get; set; }
 
-        //Schon vorgefertigt => wird beim Laden des Charts aufgerufen
-        public object this[string propertyName]
-        {
-            get { return this.GetType().GetProperty(propertyName).GetValue(this, null); }
-            set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
-        }
-
-        //Funktion um das Bundesland des Objektes zu erhalten
+        //Function to get the state as object
         public string GetBundesland()
         {
             return $"{State}";
         }
 
-        //Funktion um den ankommenden String mit dem Property zu vergleichen
-        //Wird verwendet um bei DataList (dem Filter) die Daten des ausgewählten Bundeslandes downzuloaden
+        //Function to to compare the string with the property
         public bool EqualTextandState(string selectstring)
         {
             bool test = false;
             return test = String.Equals($"{State}", selectstring);
         }
 
+        //Function to get the property to calcualte the Arithmetic Mean
         public double GetPropertyforArithmetic(string selectstring)
         {
             bool ConfirmedCasesbool = false;
@@ -57,7 +48,7 @@ namespace Abschlussprojekt_wieSchneider
             bool Testedbool = false;
             bool TestedPCRbool = false;
             bool TestedANTbool = false;
-            //noch bearbeiten
+            
             ConfirmedCasesbool = String.Equals($"ConfirmedCases", selectstring);
             if(ConfirmedCasesbool == true)
             {
@@ -99,58 +90,6 @@ namespace Abschlussprojekt_wieSchneider
                 return Convert.ToDouble(TestedANT);
             }
             return 0;
-        }
-
-        public void SetProperty(string selectstring, double value)
-        {
-            bool ConfirmedCasesbool = false;
-            bool Deathsbool = false;
-            bool Recoveredbool = false;
-            bool Hospitalizationbool = false;
-            bool IntensiveCarebool = false;
-            bool Testedbool = false;
-            bool TestedPCRbool = false;
-            bool TestedANTbool = false;
-            ConfirmedCasesbool = String.Equals($"ConfirmedCases", selectstring);
-            if (ConfirmedCasesbool == true)
-            {
-                ConfirmedCases = value;
-            }
-            Deathsbool = String.Equals($"Deaths", selectstring);
-            if (Deathsbool == true)
-            {
-                Deaths = value;
-            }
-            Recoveredbool = String.Equals($"Recovered", selectstring);
-            if (Recoveredbool == true)
-            {
-                Recovered = value;
-            }
-            Hospitalizationbool = String.Equals($"Hospitalizations", selectstring);
-            if (Hospitalizationbool == true)
-            {
-                Hospitalizations = value;
-            }
-            IntensiveCarebool = String.Equals($"IntenisveCare", selectstring);
-            if (IntensiveCarebool == true)
-            {
-                IntenisveCare = value;
-            }
-            Testedbool = String.Equals($"Tested", selectstring);
-            if (Testedbool == true)
-            {
-                Tested = value;
-            }
-            TestedPCRbool = String.Equals($"TestedPCR", selectstring);
-            if (TestedPCRbool == true)
-            {
-                TestedPCR = value;
-            }
-            TestedANTbool = String.Equals($"TestedANT", selectstring);
-            if (TestedANTbool == true)
-            {
-                TestedANT = value;
-            }
         }
     }
 }

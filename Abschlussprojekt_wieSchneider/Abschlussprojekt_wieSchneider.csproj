@@ -47,13 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chartmaker.cs" />
+    <Compile Include="View\LoadFormCharacterisitc.cs" />
     <Compile Include="Model\BasisStrucutre\Filter.cs" />
     <Compile Include="Model\BasisStrucutre\DataList.cs" />
     <Compile Include="Interface\IConnectConfig.cs" />
     <Compile Include="Interface\IConnectChartform.cs" />
     <Compile Include="Interface\IDownload.cs" />
-    <Compile Include="View\Chartloader.cs" />
     <Compile Include="View\Configform.cs">
       <SubType>Form</SubType>
     </Compile>

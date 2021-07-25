@@ -12,58 +12,63 @@ namespace Abschlussprojekt_wieSchneider
 {
     internal partial class Configform : Form, IConnectConfig
     {
-        //Für Bundeslandliste
-        List<string> IConnectConfig.Bundeslandliste{ get => testinterface; set => testinterface = value; }
-        //Für Bundeslandliste
+        List<string> IConnectConfig.Stringlistwithstates{ get => Statelist; set => Statelist = value; }
+        
         private ConfigPresenter Listboxpresenter;
-        private List<string> testinterface;
-        //INterface des Charts
-        private IConnectChartform Testobgeht;
+        private List<string> Statelist;
+        private IConnectChartform Connectinterface;
 
-
-        //KOnstruktor
+        //Constructor
         public Configform(IConnectChartform view)
         {
-            Testobgeht = view;
+            Connectinterface = view;
             InitializeComponent();
         }
 
-        //Schließen button
+        //Close Button
         private void Testbutton2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //Priate Funktion die die Strings der Bundesländer in die Listbox lädt
+        /// <summary>
+        /// Private function to load the states to the Table
+        /// </summary>
         private void UpdateList()
         {
             listBox1.Items.Clear();
 
-            for(int i = 0; i < testinterface.Count; i++)
+            for(int i = 1; i < Statelist.Count; i++)
             {
-                listBox1.Items.Add(testinterface[i]);
+                listBox1.Items.Add(Statelist[i]);
             }
         }
 
-        //Funktion lädt die Bundeländer
+        /// <summary>
+        /// Import the data and loads the states
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Import_Click(object sender, EventArgs e)
         {
-            Listboxpresenter = new ConfigPresenter(Testobgeht);
+            Listboxpresenter = new ConfigPresenter(Connectinterface);
             Listboxpresenter.LoadText(this);
             UpdateList();
+            
+
         }
 
-        //Funktion schickt Befehl ins Model die Daten in des ausgewählten BUndeslandes in die Chart zu laden
+        /// <summary>
+        /// Saves data and sends the data to the chartform
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Present_Click(object sender, EventArgs e)
         {
             if(listBox1.SelectedItem != null)
             {
-                //Zum Models und mit den Daten in die Chartform
-                //hier übergeben
-                Listboxpresenter = new ConfigPresenter(true, true, Testobgeht);
-
-                //Funktion
-                Listboxpresenter.NextstopChartpresenter(listBox1.SelectedItem.ToString());
+                Listboxpresenter = new ConfigPresenter(true, true, Connectinterface);
+                Listboxpresenter.NextstopChartpresenter(listBox1.SelectedItem.ToString(), Statelist[0]);
                 this.Close();
             }
             else
@@ -72,6 +77,11 @@ namespace Abschlussprojekt_wieSchneider
             }
         }
 
+        /// <summary>
+        /// Private function to show the choosen state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listBox1.SelectedItems != null)

@@ -8,63 +8,53 @@ using System.Windows.Forms;
 namespace Abschlussprojekt_wieSchneider
 {
     class Chartpresenter 
-    {
-        
-        //Private Membervariablen 
-        private Chartform newchartform;
+    { 
+        private Chartform Newchartform;
         private IConnectChartform Connectchartformandpresenter;
 
         
-        //private ChartMaker chartmaker;
-
-        //Für Daten
         DataList DatatoChart;
 
-        //Leerer Konstruktor (default constructor)
+        //Default constructor
         public Chartpresenter()
         {
              
         }
 
-        //Constructor mit Interface für Schnittstelle  
+        //Constructor with InterafACE  
         public Chartpresenter(IConnectChartform view)
         {
             Connectchartformandpresenter = view;
         }
 
-        
-        public void LoadDatatoChart(string selectedState)
+        /// <summary>
+        /// Function to load the data for the file and connect with th chart
+        /// </summary>
+        /// <param name="selectedState"></param>
+        public void LoadDatatoChart(string selectedState, string path)
         {
-            //Aufruf DatenListe (unser Filter)
             DatatoChart = new DataList();
-            //Download the Data for the Chart
-            DatatoChart.DownloadDataforChartandConvert(selectedState);
-
-            //Connect Funktion damit die Daten des Models mit denen der Form verbunden verbunden
+            DatatoChart.DownloadDataforChartandConvert(selectedState , path);
             ConnectChartformandPresenter();
         }
 
-        //Verbindungsfunktion
+        /// <summary>
+        /// Function to ConnectChartform and the presenter
+        /// </summary>
         public void ConnectChartformandPresenter()
         {
-            //Hier wird die Liste vom Model der Form übergeben
             Connectchartformandpresenter.Chartlist = DatatoChart.ConvertedDataforList;
-
         }
 
         /// <summary>
-        /// Funktion um die Chartfomr zu starten
+        /// Function to start the Chartform
         /// </summary>
         /// <param name="chartform1"> wird im Main übergeben </param>
         public void Run()
         {
-            newchartform = new Chartform();
-            //newchartform = chartform1;
-            Application.Run(newchartform);
+            Newchartform = new Chartform();
+            Application.Run(Newchartform);
         }
-        public void Chart(Chartform chart1)
-        {
-          //chartmaker=new ChartMaker(chart1);
-        }
+        
     }
 }
