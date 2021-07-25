@@ -27,7 +27,6 @@ namespace Abschlussprojekt_wieSchneider
             Filedownloader = new Filedownload();
             List<string> listtostring = new List<string>();
 
-            //bool j = Filedownloader.ReadFile("", "");
             bool j = Filedownloader.ReadFilefromExplorer();
 
             listtostring.Add(Filedownloader.path);

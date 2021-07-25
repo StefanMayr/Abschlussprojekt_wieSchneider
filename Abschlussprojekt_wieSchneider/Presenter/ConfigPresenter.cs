@@ -41,16 +41,12 @@ namespace Abschlussprojekt_wieSchneider
         }
 
         //Function to load the States
-        public void LoadText(IConnectConfig Configview) //Testnewway tetser
+        public void LoadText(IConnectConfig Configview)
         {
-            //tester = tetser;
-
             ConfigConnect = Configview;
             Statelistconfig = new DataList();
             Statelistconfig.Stateloader();
             ConnectConfigandStatelist();
-            //Statelistconfig.Importdata();
-            //Connectester();
         }
 
         //Function to connect the Configform with the Chartpresenter
