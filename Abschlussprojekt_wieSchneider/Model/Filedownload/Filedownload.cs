@@ -11,7 +11,7 @@ namespace Abschlussprojekt_wieSchneider
     class Filedownload : IDownload
     {
         public List<BasisstructureData> Rawdownload { get; set; }
-        public BasisstructureData[] Teststrinback;
+        public BasisstructureData[] BasisStructureArray;
         public string path{ get; private set; }
         
 
@@ -20,7 +20,11 @@ namespace Abschlussprojekt_wieSchneider
             //default constructor
         }
 
-        //Readfile zum einfachen Downloaden der rohen Daten
+        /// <summary>
+        /// Readfile to download Data
+        /// </summary>
+        /// <param name="input2"></param>
+        /// <returns></returns>
         public bool ReadFile(string input2)
         {
             List<BasisstructureData> downloaddata = new List<BasisstructureData>();
@@ -96,12 +100,16 @@ namespace Abschlussprojekt_wieSchneider
             }
 
             //Zuweisung zu den Properties
-            Teststrinback = Rawdata;
+            BasisStructureArray = Rawdata;
             Rawdownload = downloaddata;
 
             return true;
         }
 
+        /// <summary>
+        /// ReadFilefromExplorer to choose the file
+        /// </summary>
+        /// <returns></returns>
         public bool ReadFilefromExplorer()
         {
             var filePath = string.Empty;
@@ -184,7 +192,7 @@ namespace Abschlussprojekt_wieSchneider
                     {
                         downloaddata.Add(Rawdata[i]);
                     }
-                    Teststrinback = Rawdata;
+                    BasisStructureArray = Rawdata;
                     Rawdownload = downloaddata;
                     path = filePath;
 

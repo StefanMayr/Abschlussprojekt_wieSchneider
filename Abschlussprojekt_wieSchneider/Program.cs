@@ -9,17 +9,15 @@ namespace Abschlussprojekt_wieSchneider
     static class Program
     {
         /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
+        /// Main method
         /// </summary>
         [STAThread]
         static void Main()
         {
-            //Standardkomponenten
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Programm erzeugt hier den Chartpresenter
-            //Dieser dient als Einstiegspunkt damit die Form immer über den Presenter wieder geöffnet werdne kann
+            //Chartpresenter, starts the programm
             Chartpresenter newchartpresenter = new Chartpresenter();
             newchartpresenter.Run();
 

@@ -28,23 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Testbutton2 = new System.Windows.Forms.Button();
             this.DataSource = new System.Windows.Forms.Label();
             this.SelectedSource = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.btn_Import = new System.Windows.Forms.Button();
             this.btn_Present = new System.Windows.Forms.Button();
+            this.btn_Close = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Testbutton2
-            // 
-            this.Testbutton2.Location = new System.Drawing.Point(352, 355);
-            this.Testbutton2.Name = "Testbutton2";
-            this.Testbutton2.Size = new System.Drawing.Size(150, 50);
-            this.Testbutton2.TabIndex = 1;
-            this.Testbutton2.Text = "Schließen";
-            this.Testbutton2.UseVisualStyleBackColor = true;
-            this.Testbutton2.Click += new System.EventHandler(this.Testbutton2_Click);
             // 
             // DataSource
             // 
@@ -95,17 +85,27 @@
             this.btn_Present.UseVisualStyleBackColor = true;
             this.btn_Present.Click += new System.EventHandler(this.btn_Present_Click);
             // 
+            // btn_Close
+            // 
+            this.btn_Close.Location = new System.Drawing.Point(352, 355);
+            this.btn_Close.Name = "btn_Close";
+            this.btn_Close.Size = new System.Drawing.Size(150, 50);
+            this.btn_Close.TabIndex = 10;
+            this.btn_Close.Text = "Schließen";
+            this.btn_Close.UseVisualStyleBackColor = true;
+            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click);
+            // 
             // Configform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 422);
+            this.Controls.Add(this.btn_Close);
             this.Controls.Add(this.btn_Present);
             this.Controls.Add(this.btn_Import);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.SelectedSource);
             this.Controls.Add(this.DataSource);
-            this.Controls.Add(this.Testbutton2);
             this.Name = "Configform";
             this.Text = "Konfigurationsfenster";
             this.ResumeLayout(false);
@@ -114,11 +114,11 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Testbutton2;
         private System.Windows.Forms.Label DataSource;
         private System.Windows.Forms.TextBox SelectedSource;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button btn_Import;
         private System.Windows.Forms.Button btn_Present;
+        private System.Windows.Forms.Button btn_Close;
     }
 }

@@ -34,7 +34,7 @@ namespace Abschlussprojekt_wieSchneider
             {
                 for (int i = 1; i <= 10; i++)
                 {
-                    listtostring.Add(Filedownloader.Teststrinback[i].GetBundesland());
+                    listtostring.Add(Filedownloader.BasisStructureArray[i].GetBundesland());
                 }
             }
             

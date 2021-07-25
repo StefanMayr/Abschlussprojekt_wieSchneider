@@ -25,12 +25,6 @@ namespace Abschlussprojekt_wieSchneider
             InitializeComponent();
         }
 
-        //Close Button
-        private void Testbutton2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         /// <summary>
         /// Private function to load the states to the Table
         /// </summary>
@@ -88,6 +82,12 @@ namespace Abschlussprojekt_wieSchneider
             {
                 SelectedSource.Text = listBox1.SelectedItem.ToString();
             }
+        }
+
+        //Close Button
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

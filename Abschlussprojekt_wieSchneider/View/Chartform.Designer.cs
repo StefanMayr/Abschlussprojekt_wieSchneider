@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_progend = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_Config = new System.Windows.Forms.Button();
             this.Headline_lbl = new System.Windows.Forms.Label();
+            this.btn_update = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(12, 63);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart1.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(1228, 418);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -79,17 +79,6 @@
             this.btn_progend.UseVisualStyleBackColor = false;
             this.btn_progend.Click += new System.EventHandler(this.btn_progend_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(1260, 156);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 64);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Aktualisieren";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btn_Config
             // 
             this.btn_Config.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -111,15 +100,26 @@
             this.Headline_lbl.TabIndex = 8;
             this.Headline_lbl.Text = "Covid 19 Daten: ";
             // 
+            // btn_update
+            // 
+            this.btn_update.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_update.Location = new System.Drawing.Point(1260, 156);
+            this.btn_update.Name = "btn_update";
+            this.btn_update.Size = new System.Drawing.Size(150, 64);
+            this.btn_update.TabIndex = 9;
+            this.btn_update.Text = "Aktualisieren";
+            this.btn_update.UseVisualStyleBackColor = false;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            // 
             // Chartform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1422, 735);
+            this.Controls.Add(this.btn_update);
             this.Controls.Add(this.Headline_lbl);
             this.Controls.Add(this.btn_Config);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_progend);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.chart1);
@@ -150,9 +150,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mOnat6DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mOnat7DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mOnat8DataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Config;
         private System.Windows.Forms.Label Headline_lbl;
+        private System.Windows.Forms.Button btn_update;
     }
 }
 

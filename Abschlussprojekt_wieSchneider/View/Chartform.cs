@@ -16,7 +16,7 @@ namespace Abschlussprojekt_wieSchneider
         List<DataList> IConnectChartform.Chartlist { get => Listtopresent; set => Listtopresent = value; }
 
         private List<DataList> Listtopresent;
-        ConfigPresenter myConfigpresenter;
+        ConfigPresenter MyConfigpresenter;
 
 
         public Chartform()
@@ -24,19 +24,11 @@ namespace Abschlussprojekt_wieSchneider
             InitializeComponent();
         }
 
-        //Loads the chart and the DataGridView
-        private void button1_Click(object sender, EventArgs e)
-        {
-            chart1 = LoadFormCharacterisitc.Loaddata(chart1, Listtopresent);
-            this.dataGridView1 = LoadFormCharacterisitc.CreateDataGrid(dataGridView1,Listtopresent);
-            Headline_lbl.Text = LoadFormCharacterisitc.CreateLabel(Listtopresent);
-        }
-
         //Opens the Config Form
         private void btn_Config_Click(object sender, EventArgs e)
         {
-            myConfigpresenter = new ConfigPresenter(this);
-            myConfigpresenter.RunConfig();
+            MyConfigpresenter = new ConfigPresenter(this);
+            MyConfigpresenter.RunConfig();
         }
 
         //Close Button
@@ -45,5 +37,12 @@ namespace Abschlussprojekt_wieSchneider
             this.Close();
         }
 
+        //Loads the chart and the DataGridView
+        private void btn_update_Click(object sender, EventArgs e)
+        {
+            chart1 = LoadFormCharacterisitc.Loaddata(chart1, Listtopresent);
+            this.dataGridView1 = LoadFormCharacterisitc.CreateDataGrid(dataGridView1, Listtopresent);
+            Headline_lbl.Text = LoadFormCharacterisitc.CreateLabel(Listtopresent);
+        }
     }
 }
